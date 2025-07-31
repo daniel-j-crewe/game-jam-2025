@@ -13,6 +13,8 @@ public partial class SpikeTrap : Node2D
 
 	private bool BigOuchiePossible = false;
 	private bool PlayerInDangerZone = false;
+	public SignalController signalController;
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -42,6 +44,8 @@ public partial class SpikeTrap : Node2D
 		Area.BodyExited += OnBodyExited;
 
 		Sprite.FrameChanged += CheckIsDangerousFrame;
+
+		signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
 	}
 
 	private void PlayAnim()
@@ -66,6 +70,7 @@ public partial class SpikeTrap : Node2D
 		if (BigOuchiePossible && PlayerInDangerZone)
 		{
 			GD.Print("Pain inflicted");
+			signalController.EmitSignal("ResetLoop");
 		}
 	}
 }
