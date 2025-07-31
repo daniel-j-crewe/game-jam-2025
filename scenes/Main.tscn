@@ -67,10 +67,9 @@ tile_set = SubResource("TileSet_hfpdd")
 [node name="Enemy" parent="." node_paths=PackedStringArray("Waypoints", "player") instance=ExtResource("1_rarhs")]
 position = Vector2(159, 29)
 StartPos = Vector2(159, 29)
-Velocity = 1.0
+Velocity = 25.0
 Waypoints = [NodePath("EnemyWaypoint"), NodePath("EnemyWaypoint2"), NodePath("EnemyWaypoint3")]
 player = NodePath("../CoolWizard001")
-AggroTrackingEnabled = true
 
 [node name="EnemyWaypoint" parent="Enemy" instance=ExtResource("2_vcsgt")]
 position = Vector2(106, 6)

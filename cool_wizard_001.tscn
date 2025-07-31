@@ -18,6 +18,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="CoolWizard001" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D")]
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_dghpe")
 Speed = 100.0
