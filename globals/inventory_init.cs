@@ -15,6 +15,7 @@ public partial class PlayerVariables : Node
     {
         if (_turretCount == 0)
         {
+            GD.PushError("PlayerVariables: cannot decrease turret count below zero.");
             return;
         }
 
