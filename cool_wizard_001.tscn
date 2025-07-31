@@ -15,18 +15,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqoxw"]
-size = Vector2(60, 60)
+size = Vector2(16, 16)
 
-[node name="CoolWizard001" type="CharacterBody2D"]
+[node name="CoolWizard001" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D")]
 motion_mode = 1
 script = ExtResource("1_dghpe")
 Speed = 100.0
+AnimatedSprite2D = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.117188, 0.117188)
+scale = Vector2(0.0312502, 0.0312502)
 sprite_frames = SubResource("SpriteFrames_xw1jd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kqoxw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)

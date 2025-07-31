@@ -6,6 +6,13 @@ public partial class cool_wizard_001 : CharacterBody2D
     Vector2 velocity;
     [Export]
     public float Speed { get; set; }
+    [Export]
+    public AnimatedSprite2D AnimatedSprite2D { get; set; }
+    public override void _Ready()
+    {
+        base._Ready();
+        AnimatedSprite2D.Play();
+    }
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
