@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cchs3c88woodo"]
+
+[ext_resource type="Texture2D" uid="uid://dishafa2btph6" path="res://entities/backgrounds/square_right_4.png" id="1_j4ksy"]
+[ext_resource type="Script" uid="uid://dqq1dxo0w8jiu" path="res://scenes/common/CrystalTurret/CrystalTurret.cs" id="1_x8nuo"]
+[ext_resource type="Script" uid="uid://c1v8qup0e3qsk" path="res://scenes/common/CrystalTurret/TurretZoneOfEffect.cs" id="3_5d4xr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pi5d"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j4ksy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j4ksy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4ksy"]
+radius = 44.0454
+
+[node name="CrystalTurret" type="StaticBody2D" node_paths=PackedStringArray("Holder")]
+script = ExtResource("1_x8nuo")
+Holder = NodePath("Holder")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0pi5d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j4ksy")
+
+[node name="TurretZoneOfEffect" type="Area2D" parent="." node_paths=PackedStringArray("AttachedTurret")]
+script = ExtResource("3_5d4xr")
+AttachedTurret = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretZoneOfEffect"]
+shape = SubResource("CircleShape2D_j4ksy")
+
+[node name="Holder" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="TurretZoneOfEffect" to="TurretZoneOfEffect" method="BodyEntered"]
+[connection signal="body_exited" from="TurretZoneOfEffect" to="TurretZoneOfEffect" method="BodyExited"]
