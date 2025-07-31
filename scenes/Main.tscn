@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=4 uid="uid://c5x7nb7ykiav0"]
 
-[ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/enemy.tscn" id="1_rarhs"]
+[ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://dsal4di37d6ds" path="res://cool_wizard_001.tscn" id="2_3wkso"]
 [ext_resource type="Texture2D" uid="uid://dxqinf0ol3tw2" path="res://entities/backgrounds/Dungeon_Tileset.png" id="2_c01mt"]
-[ext_resource type="PackedScene" uid="uid://b4fs3403jxsv4" path="res://scenes/enemy_waypoint.tscn" id="2_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://b4fs3403jxsv4" path="res://scenes/common/Skeleton/enemy_waypoint.tscn" id="2_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
 
