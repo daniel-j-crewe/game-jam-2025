@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-public partial class Enemy : Area2D
+public partial class Enemy : CharacterBody2D
 {
     [ExportAttribute]
     public Vector2 StartPos;
@@ -71,13 +71,7 @@ public partial class Enemy : Area2D
         GlobalPosition = newPos;
     }
 
-    public new void BodyEntered(Node2D node)
-    {
-        if (node is cool_wizard_001)
-        {
-            signalController.EmitSignal("ResetLoop");
-        }
-    }
+
 
 
     public void VisionZoneEntered()

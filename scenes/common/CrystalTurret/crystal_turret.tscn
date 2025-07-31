@@ -23,6 +23,9 @@ radius = 44.0454
 
 [node name="CrystalTurret" type="StaticBody2D" node_paths=PackedStringArray("Holder")]
 script = ExtResource("1_x8nuo")
+RateOfFire = 1.0
+MovementVelocity = 25.0
+TimeToLive = 3.0
 Holder = NodePath("Holder")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

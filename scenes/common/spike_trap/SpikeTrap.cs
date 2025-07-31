@@ -55,12 +55,14 @@ public partial class SpikeTrap : Node2D
 
 	private void OnBodyEntered(Node2D body)
 	{
-		PlayerInDangerZone = true;
+		if (body is cool_wizard_001)
+			PlayerInDangerZone = true;
 	}
 
 	private void OnBodyExited(Node2D body)
 	{
-		PlayerInDangerZone = false;
+		if (body is cool_wizard_001)
+			PlayerInDangerZone = false;
 	}
 
 	private void CheckIsDangerousFrame()
