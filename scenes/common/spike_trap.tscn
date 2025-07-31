@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://3lt3oiuylmt2"]
+[gd_scene load_steps=4 format=3 uid="uid://7eioeto1sanu"]
 
 [ext_resource type="Script" uid="uid://bl16fq8yueuyb" path="res://scenes/common/spike_trap/SpikeTrap.cs" id="1_qgvvw"]
-[ext_resource type="SpriteFrames" uid="uid://dinxyclcsnpep" path="res://scenes/common/spike_trap.tres" id="2_qgvvw"]
+[ext_resource type="SpriteFrames" path="res://scenes/common/spike_trap.tres" id="2_qgvvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o7pl"]
 size = Vector2(16, 16)
