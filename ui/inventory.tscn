@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bn0e8hoqg680u"]
 
-[ext_resource type="Script" uid="uid://4ulo8rfb380n" path="res://ui/inventory_manager.cs" id="1_kosh3"]
+[ext_resource type="Script" uid="uid://3kbvufx5f1tx" path="res://ui/InventoryManager.cs" id="1_kosh3"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
