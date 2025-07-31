@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcakmjpokx8nf"
-path="res://.godot/imported/skeleton2_v1_3.png-2af2c73807daf1951b3a93ffb4504fcc.ctex"
+path="res://.godot/imported/skeleton2_v1_3.png-89416b78b6ec8193b197461963a5a180.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/Character_animation/monsters_idle/skeleton2/v1/skeleton2_v1_3.png"
-dest_files=["res://.godot/imported/skeleton2_v1_3.png-2af2c73807daf1951b3a93ffb4504fcc.ctex"]
+source_file="res://entities/enemies/monsters_idle/skeleton2/v1/skeleton2_v1_3.png"
+dest_files=["res://.godot/imported/skeleton2_v1_3.png-89416b78b6ec8193b197461963a5a180.ctex"]
 
 [params]
 

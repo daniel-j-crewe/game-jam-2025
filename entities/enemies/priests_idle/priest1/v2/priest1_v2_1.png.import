@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci7bqj2shg4rx"
-path="res://.godot/imported/priest1_v2_1.png-944271c2e8abced30dfbd46dd032d666.ctex"
+path="res://.godot/imported/priest1_v2_1.png-8fcd7d61e30f174ae0b42c89510f5fb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/Character_animation/priests_idle/priest1/v2/priest1_v2_1.png"
-dest_files=["res://.godot/imported/priest1_v2_1.png-944271c2e8abced30dfbd46dd032d666.ctex"]
+source_file="res://entities/enemies/priests_idle/priest1/v2/priest1_v2_1.png"
+dest_files=["res://.godot/imported/priest1_v2_1.png-8fcd7d61e30f174ae0b42c89510f5fb3.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhbgspmjsxpyy"
-path="res://.godot/imported/mini_box_2_4.png-0385c46a4bac55fc31cdcfb175eee1ce.ctex"
+path="res://.godot/imported/mini_box_2_4.png-51fb9e1dfbfe65292b862967993a6ef3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/mini_box_2/mini_box_2_4.png"
-dest_files=["res://.godot/imported/mini_box_2_4.png-0385c46a4bac55fc31cdcfb175eee1ce.ctex"]
+source_file="res://entities/items/mini_box_2/mini_box_2_4.png"
+dest_files=["res://.godot/imported/mini_box_2_4.png-51fb9e1dfbfe65292b862967993a6ef3.ctex"]
 
 [params]
 

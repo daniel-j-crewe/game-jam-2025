@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsal4di37d6ds"]
 
-[ext_resource type="Texture2D" uid="uid://dkpwxltgitdk3" path="res://Images/nvjjhw6y6lr81.png" id="1_0ulfa"]
-[ext_resource type="Script" path="res://cool_wizard_001.cs" id="1_dghpe"]
+[ext_resource type="Texture2D" uid="uid://dkpwxltgitdk3" path="res://images/nvjjhw6y6lr81.png" id="1_0ulfa"]
+[ext_resource type="Script" uid="uid://c33ttwcrdwojb" path="res://cool_wizard_001.cs" id="1_dghpe"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xw1jd"]
 animations = [{

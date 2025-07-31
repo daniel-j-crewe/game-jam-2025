@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbih03famh6vp"
-path="res://.godot/imported/torch_3.png-1258067c3efac1e54f6d0342ac6dbef8.ctex"
+path="res://.godot/imported/torch_3.png-26331b34f619a185f4d6931b8524db8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_3.png"
-dest_files=["res://.godot/imported/torch_3.png-1258067c3efac1e54f6d0342ac6dbef8.ctex"]
+source_file="res://entities/items/torch/torch_3.png"
+dest_files=["res://.godot/imported/torch_3.png-26331b34f619a185f4d6931b8524db8e.ctex"]
 
 [params]
 

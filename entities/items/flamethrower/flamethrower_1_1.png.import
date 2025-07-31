@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdsfdpa1m6sed"
-path="res://.godot/imported/flamethrower_1_1.png-25828059b12d85fb959daa3959b8492d.ctex"
+path="res://.godot/imported/flamethrower_1_1.png-df1f05309e43bc4d82bfdbef853b8b1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_1_1.png"
-dest_files=["res://.godot/imported/flamethrower_1_1.png-25828059b12d85fb959daa3959b8492d.ctex"]
+source_file="res://entities/items/flamethrower/flamethrower_1_1.png"
+dest_files=["res://.godot/imported/flamethrower_1_1.png-df1f05309e43bc4d82bfdbef853b8b1e.ctex"]
 
 [params]
 

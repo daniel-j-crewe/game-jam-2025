@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1rs4u0st135n"
-path="res://.godot/imported/mini_chest_open_3.png-3e73d76a59d774779fbd348c8f2451f0.ctex"
+path="res://.godot/imported/mini_chest_open_3.png-d395cb2984f2b22b455957d9332fc144.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/items and trap_animation/mini_chest/mini_chest_open_3.png"
-dest_files=["res://.godot/imported/mini_chest_open_3.png-3e73d76a59d774779fbd348c8f2451f0.ctex"]
+source_file="res://entities/items/mini_chest/mini_chest_open_3.png"
+dest_files=["res://.godot/imported/mini_chest_open_3.png-d395cb2984f2b22b455957d9332fc144.ctex"]
 
 [params]
 

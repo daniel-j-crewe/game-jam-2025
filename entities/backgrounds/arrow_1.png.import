@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyjadombsr5lv"
-path="res://.godot/imported/arrow_1.png-fbd1811fe08414f43dc4c408b1bf01e8.ctex"
+path="res://.godot/imported/arrow_1.png-1ef6bc55f7c5a5a8a85b158b1b0f3270.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/interface/arrow_1.png"
-dest_files=["res://.godot/imported/arrow_1.png-fbd1811fe08414f43dc4c408b1bf01e8.ctex"]
+source_file="res://entities/backgrounds/arrow_1.png"
+dest_files=["res://.godot/imported/arrow_1.png-1ef6bc55f7c5a5a8a85b158b1b0f3270.ctex"]
 
 [params]
 

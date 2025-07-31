@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://50sg5u6htsik"
-path="res://.godot/imported/vampire_v2_3.png-2518e382edd49fb6bd80aa8ae49ee83d.ctex"
+path="res://.godot/imported/vampire_v2_3.png-f3f5278fa46984ba45cd2643f9e6a8c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/Character_animation/monsters_idle/vampire/v2/vampire_v2_3.png"
-dest_files=["res://.godot/imported/vampire_v2_3.png-2518e382edd49fb6bd80aa8ae49ee83d.ctex"]
+source_file="res://entities/enemies/monsters_idle/vampire/v2/vampire_v2_3.png"
+dest_files=["res://.godot/imported/vampire_v2_3.png-f3f5278fa46984ba45cd2643f9e6a8c9.ctex"]
 
 [params]
 
