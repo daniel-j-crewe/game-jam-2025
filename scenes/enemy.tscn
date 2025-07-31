@@ -60,7 +60,7 @@ size = Vector2(15, 15)
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 29.0172
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Waypoints", "NavAgent")]
+[node name="Enemy" type="Area2D" node_paths=PackedStringArray("Waypoints", "NavAgent")]
 collision_layer = 2
 script = ExtResource("1_md0e3")
 Waypoints = []
@@ -87,4 +87,5 @@ AttachedEnemy = NodePath("..")
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_md0e3")
 
+[connection signal="body_entered" from="." to="." method="BodyEntered"]
 [connection signal="body_entered" from="EnemyDetectionZone" to="EnemyDetectionZone" method="BodyEntered"]

@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-public partial class Enemy : CharacterBody2D
+public partial class Enemy : Area2D
 {
     [ExportAttribute]
     public Vector2 StartPos;
@@ -24,6 +24,8 @@ public partial class Enemy : CharacterBody2D
     double navUpdateTimer = 0;
     double navUpdateTime = 0.2;
 
+    public SignalController signalController;
+
     public override void _Ready()
     {
         base._Ready();
@@ -32,7 +34,15 @@ public partial class Enemy : CharacterBody2D
         OrganiseTargetPositions();
         CurrentTargetPos = TargetPositions[0];
         NavAgent.TargetPosition = player.GlobalPosition;
+        signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
+        signalController.ResetLoop += AcknowledgeResetLoop;
+    }
 
+    public void AcknowledgeResetLoop()
+    {
+        AggroTrackingEnabled = false;
+        GlobalPosition = StartPos;
+        CurrentTargetPos = TargetPositions[0];
     }
 
 
@@ -59,6 +69,14 @@ public partial class Enemy : CharacterBody2D
             CurrentTargetPos = GetNextTargetPos();
         }
         GlobalPosition = newPos;
+    }
+
+    public new void BodyEntered(Node2D node)
+    {
+        if (node is cool_wizard_001)
+        {
+            signalController.EmitSignal("ResetLoop");
+        }
     }
 
 
