@@ -62,6 +62,12 @@ public partial class Enemy : CharacterBody2D
     }
 
 
+    public void VisionZoneEntered()
+    {
+        AggroTrackingEnabled = true;
+    }
+
+
     private void OrganiseTargetPositions()
     {
         if (TargetPositions.Count == 0)
