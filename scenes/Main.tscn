@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dsal4di37d6ds" path="res://cool_wizard_001.tscn" id="2_3wkso"]
 [ext_resource type="Texture2D" uid="uid://dxqinf0ol3tw2" path="res://entities/backgrounds/Dungeon_Tileset.png" id="2_c01mt"]
 [ext_resource type="PackedScene" uid="uid://b4fs3403jxsv4" path="res://scenes/enemy_waypoint.tscn" id="2_vcsgt"]
-[ext_resource type="PackedScene" uid="uid://3lt3oiuylmt2" path="res://scenes/common/spike_trap.tscn" id="6_c01mt"]
+[ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/spike_trap/spike_trap.tscn" id="7_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -403,6 +404,7 @@ pattern_6 = SubResource("TileMapPattern_lhr70")
 pattern_7 = SubResource("TileMapPattern_wp0k4")
 
 [node name="MainSceneRoot" type="Node2D"]
+position = Vector2(0, -1)
 
 [node name="SignalController" type="Node2D" parent="."]
 script = ExtResource("1_vcsgt")
@@ -437,5 +439,7 @@ position = Vector2(-199, -87)
 position = Vector2(-154, -190)
 StartPos = Vector2(-154, -190)
 
-[node name="SpikeTrap" parent="." instance=ExtResource("6_c01mt")]
-position = Vector2(-9, 10)
+[node name="CanvasLayer" parent="." instance=ExtResource("7_nxtc6")]
+
+[node name="SpikeTrap" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(-18, -54)
