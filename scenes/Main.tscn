@@ -133,7 +133,6 @@ pattern_2 = SubResource("TileMapPattern_vcsgt")
 pattern_3 = SubResource("TileMapPattern_nxtc6")
 
 [node name="MainSceneRoot" type="Node2D"]
-position = Vector2(0, -1)
 
 [node name="SignalController" type="Node2D" parent="."]
 script = ExtResource("1_vcsgt")
