@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://brbs6ofpc23in"]
+[gd_scene load_steps=15 format=3 uid="uid://brbs6ofpc23in"]
 
 [ext_resource type="Texture2D" uid="uid://bdj03mmnqyn14" path="res://entities/enemies/enemies-skeleton1_idle.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://cipbvlf1rsdk8" path="res://scenes/Enemy.cs" id="1_md0e3"]
 [ext_resource type="Script" uid="uid://b0oto84sw0d6h" path="res://scenes/EnemyDetectionZone.cs" id="3_4ra3w"]
+[ext_resource type="Script" uid="uid://clsk3pog4k20i" path="res://scenes/EnemyHitRange.cs" id="4_5uy6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
 atlas = ExtResource("1_7p1mj")
@@ -60,8 +61,10 @@ size = Vector2(15, 15)
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 29.0172
 
-[node name="Enemy" type="Area2D" node_paths=PackedStringArray("Waypoints", "NavAgent")]
-collision_layer = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
+size = Vector2(18, 18)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Waypoints", "NavAgent")]
 script = ExtResource("1_md0e3")
 Waypoints = []
 NavAgent = NodePath("NavigationAgent2D")
@@ -87,5 +90,13 @@ AttachedEnemy = NodePath("..")
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_md0e3")
 
-[connection signal="body_entered" from="." to="." method="BodyEntered"]
+[node name="EnemyHitRange" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
+script = ExtResource("4_5uy6h")
+AttachedEnemy = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitRange"]
+position = Vector2(-2, 5)
+shape = SubResource("RectangleShape2D_c4w8v")
+
 [connection signal="body_entered" from="EnemyDetectionZone" to="EnemyDetectionZone" method="BodyEntered"]
+[connection signal="body_entered" from="EnemyHitRange" to="EnemyHitRange" method="BodyEntered"]
