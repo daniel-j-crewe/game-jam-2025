@@ -11,6 +11,10 @@ public partial class TurretZoneOfEffect : Area2D
         {
             AttachedTurret.PlayerEnteredActivationZone();
         }
+        if (node is Enemy)
+        {
+            AttachedTurret.EnemyEnteredActivationZone((node as Enemy));
+        }
     }
 
     public new void BodyExited(Node2D node)
@@ -18,6 +22,10 @@ public partial class TurretZoneOfEffect : Area2D
         if (node is cool_wizard_001)
         {
             AttachedTurret.PlayerLeftActivationZone();
+        }
+        if (node is Enemy)
+        {
+            AttachedTurret.EnemyLeftActivationZone((node as Enemy));
         }
     }
 }
