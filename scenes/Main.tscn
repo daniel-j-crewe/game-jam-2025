@@ -404,7 +404,6 @@ pattern_6 = SubResource("TileMapPattern_lhr70")
 pattern_7 = SubResource("TileMapPattern_wp0k4")
 
 [node name="MainSceneRoot" type="Node2D"]
-position = Vector2(0, -1)
 
 [node name="SignalController" type="Node2D" parent="."]
 script = ExtResource("1_vcsgt")
@@ -418,7 +417,7 @@ tile_set = SubResource("TileSet_hfpdd")
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("Waypoints", "player") instance=ExtResource("1_rarhs")]
 position = Vector2(-34, -102)
-StartPos = Vector2(159, 29)
+StartPos = Vector2(-34, -102)
 Velocity = 25.0
 Waypoints = [NodePath("EnemyWaypoint"), NodePath("EnemyWaypoint2"), NodePath("EnemyWaypoint3")]
 player = NodePath("../CoolWizard001")
