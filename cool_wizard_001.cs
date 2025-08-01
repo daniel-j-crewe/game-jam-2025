@@ -25,6 +25,9 @@ public partial class cool_wizard_001 : CharacterBody2D
 	private bool validPlacementLocation;
 	private Vector2 placementPostion;
 
+	[Export]
+	public TurretPlacementIndicator PlacementIndicator { get; set; }
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -43,7 +46,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 			blockDefaultAnims = false;
 		}
 	}
-	
+
 	private static bool IsPlayerMoving()
 	{
 		Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
@@ -53,6 +56,8 @@ public partial class cool_wizard_001 : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		base._PhysicsProcess(delta);
+
+		PlacementIndicator.Visible = TurretPlaceModeActive;
 
 		if (TurretPlaceModeActive)
 		{
@@ -64,7 +69,8 @@ public partial class cool_wizard_001 : CharacterBody2D
 				validPlacementLocation = (bool)data.GetCustomData("TurretPlaceable");
 				placementPostion = mouseLocation;
 				GD.Print($"{mapIndex} : {data.GetCustomData("TurretPlaceable")}");
-
+				PlacementIndicator.GlobalPosition = mouseLocation;
+				PlacementIndicator.isCurrentlyValid = validPlacementLocation;
 			}
 		}
 
@@ -77,7 +83,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 		}
 
 
-		if (Input.IsActionJustPressed("PlaceTurret") && PlayerInventory.TurretCount > 0)
+		if ((Input.IsActionJustPressed("PlaceTurret") || (Input.IsActionJustPressed("ConfirmPlaceTurret") && TurretPlaceModeActive)) && PlayerInventory.TurretCount > 0)
 		{
 			if (TurretPlaceModeActive && validPlacementLocation)
 			{
@@ -92,7 +98,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 
 				blockDefaultAnims = true;
 				AnimatedSprite2D.Play("wack");
-
+				TurretPlaceModeActive = false;
 				GD.Print($"placed turret {placementPostion}");
 			}
 			else

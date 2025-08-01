@@ -26,6 +26,7 @@ public partial class CrystalTurret : StaticBody2D
     public AnimatedSprite2D animatedSprite2D { get; set; }
 
 
+
     public override void _Ready()
     {
         base._Ready();
