@@ -17,6 +17,8 @@ public partial class cool_wizard_001 : CharacterBody2D
 	public double SpawnedTowerMovementVelocity;
 	[Export]
 	public double SpawnedTowerTimeToLive;
+	[Export]
+	public double SpawnedTowerRateOfFire;
 	public DoorLever CurrentDoorLever { get; set; }
 	private bool TurretPlaceModeActive = false;
 	private bool blockDefaultAnims = false;
@@ -83,6 +85,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 				CrystalTurret turret = packedScene.Instantiate() as CrystalTurret;
 				turret.MovementVelocity = SpawnedTowerMovementVelocity;
 				turret.TimeToLive = SpawnedTowerTimeToLive;
+				turret.RateOfFire = SpawnedTowerRateOfFire;
 				turret.GlobalPosition = placementPostion;
 				map.AddChild(turret);
 				PlayerInventory.DecreaseTurretCount();
