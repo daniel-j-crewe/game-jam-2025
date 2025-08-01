@@ -11,7 +11,6 @@ public partial class cool_wizard_001 : CharacterBody2D
     public SignalController signalController;
     [Export]
     public Vector2 StartPos;
-    public DoorLever CurrentDoorLever { get; set; }
 
     public override void _Ready()
     {
@@ -23,15 +22,6 @@ public partial class cool_wizard_001 : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
-
-        if (Input.IsActionJustPressed("Interact"))
-        {
-            if (CurrentDoorLever != null)
-            {
-                CurrentDoorLever.PullLever();
-            }
-        }
-
         Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
         velocity.X = direction.X * Speed;
         velocity.Y = direction.Y * Speed;

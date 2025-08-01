@@ -1,20 +1,19 @@
 using Godot;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 
-public partial class Enemy : CharacterBody2D
+public partial class Enemy : Area2D
 {
-    [Export]
+    [ExportAttribute]
     public Vector2 StartPos;
-    [Export]
+    [ExportAttribute]
     public float Velocity;
     public Vector2[] TargetPosArray;
-    [Export]
+    [ExportAttribute]
     public EnemyWaypoint[] Waypoints;
     private List<Vector2> TargetPositions = new List<Vector2>();
     private Vector2 CurrentTargetPos;
-    private Vector2 PreviousPos;
-    private AnimatedSprite2D sprite;
     private int CurrentTargetIndex = 0;
     [Export]
     public NavigationAgent2D NavAgent { get; set; }
@@ -33,14 +32,10 @@ public partial class Enemy : CharacterBody2D
         GlobalPosition = StartPos;
         TargetPositions = Waypoints.Select(x => x.GlobalPosition).ToList();
         OrganiseTargetPositions();
-        PreviousPos = GlobalPosition;
         CurrentTargetPos = TargetPositions[0];
         NavAgent.TargetPosition = player.GlobalPosition;
         signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
         signalController.ResetLoop += AcknowledgeResetLoop;
-
-        sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-
     }
 
     public void AcknowledgeResetLoop()
@@ -55,13 +50,11 @@ public partial class Enemy : CharacterBody2D
     {
         base._PhysicsProcess(delta);
         navUpdateTimer -= delta;
-
         if (navUpdateTimer < 0)
         {
             navUpdateTimer = navUpdateTime;
             NavAgent.TargetPosition = player.GlobalPosition;
         }
-
         Vector2 newPos;
         if (AggroTrackingEnabled)
         {
@@ -71,37 +64,21 @@ public partial class Enemy : CharacterBody2D
         {
             newPos = GlobalPosition.MoveToward(CurrentTargetPos, Velocity * (float)delta);
         }
-
-        Vector2 MovementDifferential = GlobalPosition - PreviousPos;
-
-        if (MovementDifferential.LengthSquared() > 0.01f)
-        {
-            if (sprite.Animation != "walk")
-            {
-                sprite.Play("walk");
-            }
-
-
-            if (Mathf.Abs(MovementDifferential.X) > 0.01f)
-            {
-                sprite.FlipH = MovementDifferential.X < 0;
-            }
-
-        }
-        else
-        {
-            if (sprite.Animation != "idle")
-                sprite.Play("idle");
-        }
-
-        PreviousPos = GlobalPosition;
-        GlobalPosition = newPos;
-
         if (Position == CurrentTargetPos)
         {
             CurrentTargetPos = GetNextTargetPos();
         }
+        GlobalPosition = newPos;
     }
+
+    public new void BodyEntered(Node2D node)
+    {
+        if (node is cool_wizard_001)
+        {
+            signalController.EmitSignal("ResetLoop");
+        }
+    }
+
 
     public void VisionZoneEntered()
     {
@@ -118,7 +95,8 @@ public partial class Enemy : CharacterBody2D
         else
         {
             TargetPositions.Reverse();
-            List<Vector2> returnPath = [.. TargetPositions];
+            List<Vector2> returnPath = new List<Vector2>();
+            returnPath.AddRange(TargetPositions);
             TargetPositions.Reverse();
             TargetPositions.AddRange(returnPath);
             TargetPositions.Add(StartPos);
