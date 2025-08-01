@@ -19,15 +19,33 @@ public partial class cool_wizard_001 : CharacterBody2D
 	public double SpawnedTowerTimeToLive;
 	public DoorLever CurrentDoorLever { get; set; }
 	private bool TurretPlaceModeActive = false;
+	private bool blockDefaultAnims = false;
 	private bool validPlacementLocation;
 	private Vector2 placementPostion;
 
 	public override void _Ready()
 	{
 		base._Ready();
-		AnimatedSprite2D.Play();
+
 		signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
 		signalController.ResetLoop += AcknowledgeResetLoop;
+
+		AnimatedSprite2D.AnimationFinished += ClearBlockAnims;
+		AnimatedSprite2D.Play("idle");
+	}
+
+	private void ClearBlockAnims()
+	{
+		if (blockDefaultAnims)
+		{
+			blockDefaultAnims = false;
+		}
+	}
+	
+	private static bool IsPlayerMoving()
+	{
+		Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
+		return direction.LengthSquared() > 0.01f;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -68,6 +86,10 @@ public partial class cool_wizard_001 : CharacterBody2D
 				turret.GlobalPosition = placementPostion;
 				map.AddChild(turret);
 				PlayerInventory.DecreaseTurretCount();
+
+				blockDefaultAnims = true;
+				AnimatedSprite2D.Play("wack");
+
 				GD.Print($"placed turret {placementPostion}");
 			}
 			else
@@ -86,6 +108,23 @@ public partial class cool_wizard_001 : CharacterBody2D
 		velocity.Y = direction.Y * Speed;
 		Velocity = velocity;
 		MoveAndSlide();
+
+		if (direction.X != 0)
+		{
+			AnimatedSprite2D.FlipH = direction.X < 0;
+		}
+
+		if (!blockDefaultAnims)
+		{
+			if (IsPlayerMoving())
+			{
+				AnimatedSprite2D.Play("walk");
+			}
+			else
+			{
+				AnimatedSprite2D.Play("idle");
+			}
+		}
 	}
 
 	public void AcknowledgeResetLoop()
