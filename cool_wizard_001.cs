@@ -48,13 +48,13 @@ public partial class cool_wizard_001 : CharacterBody2D
             }
         }
 
-        if (Input.IsActionJustPressed("Interact"))
-        {
-            if (CurrentDoorLever != null)
-            {
-                CurrentDoorLever.PullLever();
-            }
-        }
+		if (Input.IsActionJustPressed("Interact"))
+		{
+			if (CurrentDoorLever != null)
+			{
+				CurrentDoorLever.PullLever();
+			}
+		}
 
 
         if (Input.IsActionJustPressed("PlaceTurret") && PlayerInventory.TurretCount > 0)
@@ -88,9 +88,9 @@ public partial class cool_wizard_001 : CharacterBody2D
         MoveAndSlide();
     }
 
-    public void AcknowledgeResetLoop()
-    {
-        GlobalPosition = StartPos;
-    }
+	public void AcknowledgeResetLoop()
+	{
+		GlobalPosition = StartPos;
+	}
 
 }
