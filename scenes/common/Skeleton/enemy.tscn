@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://brbs6ofpc23in"]
+[gd_scene load_steps=26 format=3 uid="uid://brbs6ofpc23in"]
 
 [ext_resource type="Texture2D" uid="uid://bdj03mmnqyn14" path="res://entities/enemies/enemies-skeleton1_idle.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://cipbvlf1rsdk8" path="res://scenes/common/Skeleton/Enemy.cs" id="1_md0e3"]
 [ext_resource type="Script" uid="uid://b0oto84sw0d6h" path="res://scenes/common/Skeleton/EnemyDetectionZone.cs" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://d1gjxt5v0bv24" path="res://entities/enemies/enemies-skeleton2_movemen.png" id="3_pknq2"]
 [ext_resource type="Script" uid="uid://clsk3pog4k20i" path="res://scenes/common/Skeleton/EnemyHitRange.cs" id="4_5uy6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
@@ -29,6 +30,46 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("1_7p1mj")
 region = Rect2(160, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf34u"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev12y"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2ykm"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xqef"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue86d"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3r8n"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo6jo"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgfkt"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s8tj"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq3j0"]
+atlas = ExtResource("3_pknq2")
+region = Rect2(288, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ipns3"]
 animations = [{
 "frames": [{
@@ -51,7 +92,42 @@ animations = [{
 "texture": SubResource("AtlasTexture_md484")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf34u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev12y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2ykm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xqef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ue86d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3r8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo6jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgfkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s8tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq3j0")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -71,10 +147,12 @@ NavAgent = NodePath("NavigationAgent2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ipns3")
-frame = 1
-frame_progress = 0.136479
+animation = &"idle"
+frame = 2
+frame_progress = 0.825334
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1.5, 5.5)
 shape = SubResource("RectangleShape2D_md0e3")
 
@@ -83,18 +161,22 @@ path_postprocessing = 1
 debug_enabled = true
 
 [node name="EnemyDetectionZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
+visible = false
 script = ExtResource("3_4ra3w")
 AttachedEnemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionZone"]
+visible = false
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_md0e3")
 
 [node name="EnemyHitRange" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
+visible = false
 script = ExtResource("4_5uy6h")
 AttachedEnemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitRange"]
+visible = false
 position = Vector2(-2, 5)
 shape = SubResource("RectangleShape2D_c4w8v")
 
