@@ -5,10 +5,10 @@ public partial class Door : StaticBody2D
 {
     [Export]
     public CollisionShape2D Hitbox { get; set; }
-    public void Open()
+    public void FlipState()
     {
-        GD.Print("Door opened yay");
-        this.Hitbox.Disabled = true;
-        this.Visible = false;
+        this.Hitbox.Disabled = !Hitbox.Disabled;
+        this.Visible = !Visible;
     }
+
 }
