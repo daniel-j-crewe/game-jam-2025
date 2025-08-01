@@ -24,12 +24,15 @@ public partial class Enemy : CharacterBody2D
     public bool AggroTrackingEnabled { get; set; }
     double navUpdateTimer = 0;
     double navUpdateTime = 0.2;
+    private Node parent;
+    private bool queuedForRemoval = false;
 
     public SignalController signalController;
 
     public override void _Ready()
     {
         base._Ready();
+        parent = this.GetParent();
         GlobalPosition = StartPos;
         TargetPositions = Waypoints.Select(x => x.GlobalPosition).ToList();
         OrganiseTargetPositions();
@@ -48,12 +51,19 @@ public partial class Enemy : CharacterBody2D
         AggroTrackingEnabled = false;
         GlobalPosition = StartPos;
         CurrentTargetPos = TargetPositions[0];
+        RestoreToMap();
     }
 
 
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
+        if (queuedForRemoval)
+        {
+            queuedForRemoval = false;
+            if (parent.GetChildren().Contains(this)) parent.RemoveChild(this);
+            return;
+        }
         navUpdateTimer -= delta;
 
         if (navUpdateTimer < 0)
@@ -108,6 +118,16 @@ public partial class Enemy : CharacterBody2D
         AggroTrackingEnabled = true;
     }
 
+    public void HitAndRemove()
+    {
+        queuedForRemoval = true;
+       // if (parent.GetChildren().Contains(this)) parent.RemoveChild(this);
+    }
+
+    public void RestoreToMap()
+    {
+        if (!parent.GetChildren().Contains(this)) parent.AddChild(this);
+    }
 
     private void OrganiseTargetPositions()
     {

@@ -12,4 +12,12 @@ public partial class EnemyHitRange : Area2D
             AttachedEnemy.signalController.EmitSignal("ResetLoop");
         }
     }
+
+    public new void AreaEntered(Area2D node)
+    {
+        if (node is CrystalBullet)
+        {
+            AttachedEnemy.HitAndRemove();
+        }
+    }
 }
