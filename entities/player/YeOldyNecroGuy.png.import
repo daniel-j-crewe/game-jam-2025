@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2pjh4e5rgkuy"
-path="res://.godot/imported/NewTM1.png-2b43937db61d59492ec8436d7e82b0b7.ctex"
+uid="uid://dwbg0574jddh7"
+path="res://.godot/imported/YeOldyNecroGuy.png-9b681104d3bb9c78da48232cb47f19af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/NewTM1.png"
-dest_files=["res://.godot/imported/NewTM1.png-2b43937db61d59492ec8436d7e82b0b7.ctex"]
+source_file="res://entities/player/YeOldyNecroGuy.png"
+dest_files=["res://.godot/imported/YeOldyNecroGuy.png-9b681104d3bb9c78da48232cb47f19af.ctex"]
 
 [params]
 

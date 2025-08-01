@@ -32,7 +32,7 @@ public partial class Chest : Node2D
 
 	private void OpenChest()
 	{
-		if (_opened)
+		if (_opened || !_playerCanOpen)
 		{
 			return;
 		}
