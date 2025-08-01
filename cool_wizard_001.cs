@@ -31,6 +31,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 	public override void _Ready()
 	{
 		base._Ready();
+		GlobalPosition = StartPos;
 
 		signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
 		signalController.ResetLoop += AcknowledgeResetLoop;
