@@ -21,11 +21,25 @@ public partial class CrystalTurret : StaticBody2D
     private Enemy CurrentTargetEnemy;
     private List<Enemy> EnemiesInRange = new List<Enemy>();
 
+    public SignalController signalController;
+
 
     public override void _Ready()
     {
         base._Ready();
         Parent = this.GetParent();
+        signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
+        signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
+
+        signalController.ResetLoop += AcknowledgeResetLoop;
+
+    }
+    public void AcknowledgeResetLoop()
+    {
+        foreach (CrystalBullet bullet in Holder.GetChildren().Where(x => x is CrystalBullet))
+        {
+            bullet.QueueFree();
+        }
     }
 
 

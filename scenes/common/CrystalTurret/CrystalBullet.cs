@@ -9,6 +9,7 @@ public partial class CrystalBullet : Area2D
     public double TimeToLive;
     private double timeAlive;
     Vector2 TargetPos;
+
     public override void _Ready()
     {
         base._Ready();
@@ -28,10 +29,5 @@ public partial class CrystalBullet : Area2D
         Position = newPos;
     }
 
-    public new void BodyEntered(Node2D node)
-    {
-        if (node is Enemy)
-        {
-        }
-    }
+
 }
