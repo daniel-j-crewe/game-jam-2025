@@ -23,6 +23,6 @@ public partial class DoorLever : Area2D
 
     public void PullLever()
     {
-        AttachedDoor.Open();
+        AttachedDoor.FlipState();
     }
 }
