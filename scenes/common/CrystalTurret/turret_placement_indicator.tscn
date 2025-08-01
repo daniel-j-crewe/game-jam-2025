@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjae0vhow0ela"]
+
+[ext_resource type="Texture2D" uid="uid://bhjs51yk88lqr" path="res://entities/crystaltower/Crystal_Tower.png" id="1_01ano"]
+[ext_resource type="Shader" uid="uid://c5xab3romvmp8" path="res://scenes/common/CrystalTurret/turret_placement_indicator.gdshader" id="1_umhtt"]
+[ext_resource type="Script" uid="uid://bcycuxwqrq7mr" path="res://scenes/common/CrystalTurret/TurretPlacementIndicator.cs" id="3_l7w6v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wpdg"]
+shader = ExtResource("1_umhtt")
+shader_parameter/weighted = true
+shader_parameter/isValid = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1t0s"]
+atlas = ExtResource("1_01ano")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umhtt"]
+atlas = ExtResource("1_01ano")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7w6v"]
+atlas = ExtResource("1_01ano")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wpdg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1t0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umhtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7w6v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TurretPlacementIndicator" type="AnimatedSprite2D" node_paths=PackedStringArray("animatedSprite2D")]
+material = SubResource("ShaderMaterial_2wpdg")
+sprite_frames = SubResource("SpriteFrames_2wpdg")
+script = ExtResource("3_l7w6v")
+animatedSprite2D = NodePath(".")
