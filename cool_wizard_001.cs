@@ -67,6 +67,7 @@ public partial class cool_wizard_001 : CharacterBody2D
                 turret.TimeToLive = SpawnedTowerTimeToLive;
                 turret.GlobalPosition = placementPostion;
                 map.AddChild(turret);
+                PlayerInventory.DecreaseTurretCount();
                 GD.Print($"placed turret {placementPostion}");
             }
             else
