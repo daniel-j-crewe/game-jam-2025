@@ -86,7 +86,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a4k2v")
 }],
-"loop": true,
+"loop": false,
 "name": &"soy_face",
 "speed": 5.0
 }, {
@@ -103,7 +103,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_58rho")
 }],
-"loop": true,
+"loop": false,
 "name": &"wack",
 "speed": 5.0
 }, {
@@ -141,10 +141,8 @@ Speed = 100.0
 AnimatedSprite2D = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.0312502, 0.0312502)
 sprite_frames = SubResource("SpriteFrames_xw1jd")
-animation = &"soy_face"
-frame_progress = 0.646346
+animation = &"idle"
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="."]
 visible = false
