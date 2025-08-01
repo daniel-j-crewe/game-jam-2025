@@ -18,7 +18,6 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="CoolWizard001" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D")]
-collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_dghpe")
 Speed = 100.0
@@ -28,7 +27,7 @@ AnimatedSprite2D = NodePath("AnimatedSprite2D")
 scale = Vector2(0.0312502, 0.0312502)
 sprite_frames = SubResource("SpriteFrames_xw1jd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PhysicsHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kqoxw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
