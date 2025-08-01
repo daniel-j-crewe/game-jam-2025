@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx3jvy8ud4gru"]
+
+[ext_resource type="Script" uid="uid://ct8ebeh0gnpt" path="res://scenes/common/leverdoorsystem/Door.cs" id="1_q3gik"]
+[ext_resource type="Texture2D" uid="uid://bc4i4klbhrslp" path="res://entities/items/flag/flag_1.png" id="2_24dif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwxw0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvaap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_24dif")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Door" type="StaticBody2D" node_paths=PackedStringArray("Hitbox")]
+script = ExtResource("1_q3gik")
+Hitbox = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kwxw0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jvaap")
