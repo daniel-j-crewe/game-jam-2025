@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://c2b6wmmdmybca"]
+[gd_scene load_steps=51 format=4 uid="uid://c2b6wmmdmybca"]
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b4fs3403jxsv4" path="res://scenes/common/Skeleton/enemy_waypoint.tscn" id="2_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
-[ext_resource type="PackedScene" uid="uid://b73jipte5w60i" path="res://scenes/common/Chest/Chest.tscn" id="8_jlsqs"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -487,6 +486,3 @@ StartPos = Vector2(-154, -190)
 
 [node name="SpikeTrap" parent="." instance=ExtResource("7_jlsqs")]
 position = Vector2(-18, -54)
-
-[node name="Node2D" parent="." instance=ExtResource("8_jlsqs")]
-position = Vector2(-197, -147)
