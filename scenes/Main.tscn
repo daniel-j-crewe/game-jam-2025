@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c5x7nb7ykiav0"]
+[gd_scene load_steps=15 format=4 uid="uid://c2b6wmmdmybca"]
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
@@ -19,6 +19,12 @@ tile_data = PackedInt32Array(0, 524291, 1, 65536, 524291, 1, 131072, 524291, 1, 
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_nxtc6"]
 tile_data = PackedInt32Array(0, 524291, 1, 65536, 524291, 1, 131072, 524291, 1, 196608, 524291, 1, 262144, 524291, 1, 1, 524291, 1, 65537, 524291, 1, 131073, 524291, 1, 196609, 524291, 1, 262145, 524291, 1, 2, 524291, 1, 65538, 524291, 1, 131074, 524291, 1, 196610, 524291, 1, 262146, 524291, 1, 3, 524291, 1, 65539, 524291, 1, 131075, 524291, 1, 196611, 524291, 1, 262147, 524291, 1, 4, 524291, 1, 65540, 524291, 1, 131076, 524291, 1, 196612, 524291, 1, 262148, 524291, 1, 5, 524291, 1, 65541, 524291, 1, 131077, 524291, 1, 196613, 524291, 1, 262149, 524291, 1, 6, 524291, 1, 65542, 524291, 1, 131078, 524291, 1, 196614, 524291, 1, 262150, 524291, 1, 7, 524291, 1, 65543, 524291, 1, 131079, 524291, 1, 196615, 524291, 1, 262151, 524291, 1, 8, 524291, 1, 65544, 524291, 1, 131080, 524291, 1, 196616, 524291, 1, 262152, 524291, 1, 9, 524291, 1, 65545, 524291, 1, 131081, 524291, 1, 196617, 524291, 1, 262153, 524291, 1, 10, 524291, 1, 65546, 524291, 1, 131082, 524291, 1, 196618, 524291, 1, 262154, 524291, 1, 11, 524291, 1, 65547, 524291, 1, 131083, 524291, 1, 196619, 524291, 1, 262155, 524291, 1, 12, 524291, 1, 65548, 524291, 1, 131084, 524291, 1, 196620, 524291, 1, 262156, 524291, 1, 13, 524291, 1, 65549, 524291, 1, 131085, 524291, 1, 196621, 524291, 1, 262157, 524291, 1, 14, 524291, 1, 65550, 524291, 1, 131086, 524291, 1, 196622, 524291, 1, 262158, 524291, 1, 15, 524291, 1, 65551, 524291, 1, 131087, 524291, 1, 196623, 524291, 1, 262159, 524291, 1, 16, 524291, 1, 65552, 524291, 1, 131088, 524291, 1, 196624, 524291, 1, 262160, 524291, 1, 17, 524291, 1, 65553, 524291, 1, 131089, 524291, 1, 196625, 524291, 1, 262161, 524291, 1, 18, 524291, 1, 65554, 524291, 1, 131090, 524291, 1, 196626, 524291, 1, 262162, 524291, 1, 19, 524291, 1, 65555, 524291, 1, 131091, 524291, 1, 196627, 524291, 1, 262163, 524291, 1, 20, 524291, 1, 65556, 524291, 1, 131092, 524291, 1, 196628, 524291, 1, 262164, 524291, 1, 21, 524291, 1, 65557, 524291, 1, 131093, 524291, 1, 196629, 524291, 1, 262165, 524291, 1)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nxtc6"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("2_c01mt")
@@ -41,6 +47,7 @@ texture = ExtResource("2_c01mt")
 6:1/0 = 0
 7:1/0 = 0
 8:1/0 = 0
+8:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_nxtc6")
 9:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
@@ -133,7 +140,6 @@ pattern_2 = SubResource("TileMapPattern_vcsgt")
 pattern_3 = SubResource("TileMapPattern_nxtc6")
 
 [node name="MainSceneRoot" type="Node2D"]
-position = Vector2(0, -1)
 
 [node name="SignalController" type="Node2D" parent="."]
 script = ExtResource("1_vcsgt")
@@ -146,7 +152,7 @@ tile_set = SubResource("TileSet_hfpdd")
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("Waypoints", "player") instance=ExtResource("1_rarhs")]
 position = Vector2(-34, -102)
-StartPos = Vector2(159, 29)
+StartPos = Vector2(-34, -102)
 Velocity = 25.0
 Waypoints = [NodePath("EnemyWaypoint"), NodePath("EnemyWaypoint2"), NodePath("EnemyWaypoint3")]
 player = NodePath("../CoolWizard001")
