@@ -181,4 +181,5 @@ position = Vector2(-2, 5)
 shape = SubResource("RectangleShape2D_c4w8v")
 
 [connection signal="body_entered" from="EnemyDetectionZone" to="EnemyDetectionZone" method="BodyEntered"]
+[connection signal="area_entered" from="EnemyHitRange" to="EnemyHitRange" method="AreaEntered"]
 [connection signal="body_entered" from="EnemyHitRange" to="EnemyHitRange" method="BodyEntered"]
