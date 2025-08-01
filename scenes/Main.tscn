@@ -460,23 +460,14 @@ tile_map_data = PackedByteArray("AAD7/wEAAwABAAEAAAD8/wEAAwACAAEAAAD8/wIAAwAIAAE
 tile_set = SubResource("TileSet_hfpdd")
 
 [node name="CoolWizard001" parent="." node_paths=PackedStringArray("map") instance=ExtResource("2_3wkso")]
-position = Vector2(-56, 55)
+position = Vector2(98, 60)
 map = NodePath("../Layer0")
-StartPos = Vector2(-56, -55)
+StartPos = Vector2(-22, 52)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_nxtc6")]
 
 [node name="SpikeTrap" parent="." instance=ExtResource("7_jlsqs")]
 position = Vector2(63, 8)
-
-[node name="SpikeTrap" parent="SpikeTrap" instance=ExtResource("7_jlsqs")]
-position = Vector2(50, 0)
-
-[node name="SpikeTrap2" parent="SpikeTrap" instance=ExtResource("7_jlsqs")]
-position = Vector2(0, 116)
-
-[node name="SpikeTrap" parent="SpikeTrap/SpikeTrap2" instance=ExtResource("7_jlsqs")]
-position = Vector2(50, 0)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(354, 298)
@@ -689,3 +680,12 @@ position = Vector2(835, -1175)
 
 [node name="Node2D12" parent="." instance=ExtResource("5_jlsqs")]
 position = Vector2(1464, 1141)
+
+[node name="SpikeTrap2" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(63, 124)
+
+[node name="SpikeTrap3" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(113, 8)
+
+[node name="SpikeTrap4" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(113, 124)
