@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj686n4u7ydae"]
+
+[ext_resource type="Script" uid="uid://mej8mv4jm28u" path="res://scenes/common/leverdoorsystem/DoorLever.cs" id="1_busur"]
+[ext_resource type="Texture2D" uid="uid://bggwbrkw4k6xm" path="res://entities/items/box_1/box_1_1.png" id="1_yw54n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_busur"]
+radius = 25.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23m16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yw54n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DoorLever" type="Area2D"]
+script = ExtResource("1_busur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_busur")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_23m16")
+
+[connection signal="body_entered" from="." to="." method="BodyEntered"]
+[connection signal="body_exited" from="." to="." method="BodyExited"]
