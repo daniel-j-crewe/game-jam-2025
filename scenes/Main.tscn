@@ -501,6 +501,7 @@ player = NodePath("../CoolWizard001")
 [node name="Enemy5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(-57, -208)
 StartPos = Vector2(-57, -209)
+Velocity = 30.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
@@ -614,9 +615,10 @@ position = Vector2(692, 1012)
 StartPos = Vector2(692, 1012)
 player = NodePath("../CoolWizard001")
 
-[node name="Enemy27" parent="." instance=ExtResource("1_rarhs")]
+[node name="Enemy27" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(831, 532)
 StartPos = Vector2(831, 532)
+player = NodePath("../CoolWizard001")
 
 [node name="Enemy28" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(759, -251)

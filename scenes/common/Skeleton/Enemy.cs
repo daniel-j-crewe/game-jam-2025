@@ -4,154 +4,154 @@ using System.Collections.Generic;
 
 public partial class Enemy : CharacterBody2D
 {
-    [Export]
-    public Vector2 StartPos;
-    [Export]
-    public float Velocity;
-    public Vector2[] TargetPosArray;
-    [Export]
-    public EnemyWaypoint[] Waypoints;
-    private List<Vector2> TargetPositions = new List<Vector2>();
-    private Vector2 CurrentTargetPos;
-    private Vector2 PreviousPos;
-    private AnimatedSprite2D sprite;
-    private int CurrentTargetIndex = 0;
-    [Export]
-    public NavigationAgent2D NavAgent { get; set; }
-    [Export]
-    public cool_wizard_001 player { get; set; }
-    [Export]
-    public bool AggroTrackingEnabled { get; set; }
-    double navUpdateTimer = 0;
-    double navUpdateTime = 0.2;
-    private Node parent;
-    private bool queuedForRemoval = false;
+	[Export]
+	public Vector2 StartPos;
+	[Export]
+	public float Velocity;
+	public Vector2[] TargetPosArray;
+	[Export]
+	public EnemyWaypoint[] Waypoints;
+	private List<Vector2> TargetPositions = new List<Vector2>();
+	private Vector2 CurrentTargetPos;
+	private Vector2 PreviousPos;
+	private AnimatedSprite2D sprite;
+	private int CurrentTargetIndex = 0;
+	[Export]
+	public NavigationAgent2D NavAgent { get; set; }
+	[Export]
+	public cool_wizard_001 player { get; set; }
+	[Export]
+	public bool AggroTrackingEnabled { get; set; }
+	double navUpdateTimer = 0;
+	double navUpdateTime = 0.2;
+	private Node parent;
+	private bool queuedForRemoval = false;
 
-    public SignalController signalController;
+	public SignalController signalController;
 
-    public override void _Ready()
-    {
-        base._Ready();
-        parent = this.GetParent();
-        GlobalPosition = StartPos;
-        TargetPositions = Waypoints.Select(x => x.GlobalPosition).ToList();
-        OrganiseTargetPositions();
-        PreviousPos = GlobalPosition;
-        CurrentTargetPos = TargetPositions[0];
-        NavAgent.TargetPosition = player.GlobalPosition;
-        signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
-        signalController.ResetLoop += AcknowledgeResetLoop;
+	public override void _Ready()
+	{
+		base._Ready();
+		parent = this.GetParent();
+		GlobalPosition = StartPos;
+		TargetPositions = Waypoints.Select(x => x.GlobalPosition).ToList();
+		OrganiseTargetPositions();
+		PreviousPos = GlobalPosition;
+		CurrentTargetPos = TargetPositions[0];
+		NavAgent.TargetPosition = player.GlobalPosition;
+		signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
+		signalController.ResetLoop += AcknowledgeResetLoop;
 
-        sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		sprite.Play("idle");
 
-    }
+	}
 
-    public void AcknowledgeResetLoop()
-    {
-        AggroTrackingEnabled = false;
-        GlobalPosition = StartPos;
-        CurrentTargetPos = TargetPositions[0];
-        RestoreToMap();
-    }
-
-
-    public override void _PhysicsProcess(double delta)
-    {
-        base._PhysicsProcess(delta);
-        if (queuedForRemoval)
-        {
-            queuedForRemoval = false;
-            if (parent.GetChildren().Contains(this)) parent.RemoveChild(this);
-            return;
-        }
-        navUpdateTimer -= delta;
-
-        if (navUpdateTimer < 0)
-        {
-            navUpdateTimer = navUpdateTime;
-            NavAgent.TargetPosition = player.GlobalPosition;
-        }
-
-        Vector2 newPos;
-        if (AggroTrackingEnabled)
-        {
-            newPos = GlobalPosition.MoveToward(NavAgent.GetNextPathPosition(), Velocity * (float)delta);
-        }
-        else
-        {
-            newPos = GlobalPosition.MoveToward(CurrentTargetPos, Velocity * (float)delta);
-        }
-
-        Vector2 MovementDifferential = GlobalPosition - PreviousPos;
-
-        if (MovementDifferential.LengthSquared() > 0.01f)
-        {
-            if (sprite.Animation != "walk")
-            {
-                sprite.Play("walk");
-            }
+	public void AcknowledgeResetLoop()
+	{
+		AggroTrackingEnabled = false;
+		GlobalPosition = StartPos;
+		CurrentTargetPos = TargetPositions[0];
+		RestoreToMap();
+	}
 
 
-            if (Mathf.Abs(MovementDifferential.X) > 0.01f)
-            {
-                sprite.FlipH = MovementDifferential.X < 0;
-            }
+	public override void _PhysicsProcess(double delta)
+	{
+		base._PhysicsProcess(delta);
+		if (queuedForRemoval)
+		{
+			queuedForRemoval = false;
+			if (parent.GetChildren().Contains(this)) parent.RemoveChild(this);
+			return;
+		}
+		navUpdateTimer -= delta;
 
-        }
-        else
-        {
-            if (sprite.Animation != "idle")
-                sprite.Play("idle");
-        }
+		if (navUpdateTimer < 0)
+		{
+			navUpdateTimer = navUpdateTime;
+			NavAgent.TargetPosition = player.GlobalPosition;
+		}
 
-        PreviousPos = GlobalPosition;
-        GlobalPosition = newPos;
+		Vector2 newPos;
+		if (AggroTrackingEnabled)
+		{
+			newPos = GlobalPosition.MoveToward(NavAgent.GetNextPathPosition(), Velocity * (float)delta);
+		}
+		else
+		{
+			newPos = GlobalPosition.MoveToward(CurrentTargetPos, Velocity * (float)delta);
+		}
 
-        if (Position == CurrentTargetPos)
-        {
-            CurrentTargetPos = GetNextTargetPos();
-        }
-    }
+		Vector2 MovementDifferential = GlobalPosition - PreviousPos;
 
-    public void VisionZoneEntered()
-    {
-        AggroTrackingEnabled = true;
-    }
+		if (MovementDifferential.LengthSquared() > 0.01f)
+		{
+			if (sprite.Animation != "walk")
+			{
+				sprite.Play("walk");
+			}
 
-    public void HitAndRemove()
-    {
-        queuedForRemoval = true;
-       // if (parent.GetChildren().Contains(this)) parent.RemoveChild(this);
-    }
 
-    public void RestoreToMap()
-    {
-        if (!parent.GetChildren().Contains(this)) parent.AddChild(this);
-    }
+			if (Mathf.Abs(MovementDifferential.X) > 0.01f)
+			{
+				sprite.FlipH = MovementDifferential.X < 0;
+			}
 
-    private void OrganiseTargetPositions()
-    {
-        if (TargetPositions.Count == 0)
-        {
-            TargetPositions.Add(StartPos);
-        }
-        else
-        {
-            TargetPositions.Reverse();
-            List<Vector2> returnPath = [.. TargetPositions];
-            TargetPositions.Reverse();
-            TargetPositions.AddRange(returnPath);
-            TargetPositions.Add(StartPos);
-        }
-    }
+		}
+		else
+		{
+			if (sprite.Animation != "idle")
+				sprite.Play("idle");
+		}
 
-    private Vector2 GetNextTargetPos()
-    {
-        CurrentTargetIndex++;
-        if (CurrentTargetIndex > TargetPositions.Count - 1)
-        {
-            CurrentTargetIndex = 0;
-        }
-        return TargetPositions[CurrentTargetIndex];
-    }
+		PreviousPos = GlobalPosition;
+		GlobalPosition = newPos;
+
+		if (Position == CurrentTargetPos)
+		{
+			CurrentTargetPos = GetNextTargetPos();
+		}
+	}
+
+	public void VisionZoneEntered()
+	{
+		AggroTrackingEnabled = true;
+	}
+
+	public void HitAndRemove()
+	{
+		queuedForRemoval = true;
+	}
+
+	public void RestoreToMap()
+	{
+		if (!parent.GetChildren().Contains(this)) parent.AddChild(this);
+	}
+
+	private void OrganiseTargetPositions()
+	{
+		if (TargetPositions.Count == 0)
+		{
+			TargetPositions.Add(StartPos);
+		}
+		else
+		{
+			TargetPositions.Reverse();
+			List<Vector2> returnPath = [.. TargetPositions];
+			TargetPositions.Reverse();
+			TargetPositions.AddRange(returnPath);
+			TargetPositions.Add(StartPos);
+		}
+	}
+
+	private Vector2 GetNextTargetPos()
+	{
+		CurrentTargetIndex++;
+		if (CurrentTargetIndex > TargetPositions.Count - 1)
+		{
+			CurrentTargetIndex = 0;
+		}
+		return TargetPositions[CurrentTargetIndex];
+	}
 }

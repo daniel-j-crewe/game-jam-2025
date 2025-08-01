@@ -152,7 +152,6 @@ frame = 2
 frame_progress = 0.825334
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1.5, 5.5)
 shape = SubResource("RectangleShape2D_md0e3")
 
@@ -161,22 +160,18 @@ path_postprocessing = 1
 debug_enabled = true
 
 [node name="EnemyDetectionZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
-visible = false
 script = ExtResource("3_4ra3w")
 AttachedEnemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetectionZone"]
-visible = false
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_md0e3")
 
 [node name="EnemyHitRange" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
-visible = false
 script = ExtResource("4_5uy6h")
 AttachedEnemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitRange"]
-visible = false
 position = Vector2(-2, 5)
 shape = SubResource("RectangleShape2D_c4w8v")
 
