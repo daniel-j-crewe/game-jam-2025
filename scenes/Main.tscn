@@ -408,6 +408,15 @@ pattern_7 = SubResource("TileMapPattern_wp0k4")
 [node name="SignalController" type="Node2D" parent="."]
 script = ExtResource("1_vcsgt")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5546.0
+offset_top = -5071.0
+offset_right = 4674.0
+offset_bottom = 4270.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.145098, 0.0745098, 0.101961, 1)
+
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
 position = Vector2(-820, -376)
