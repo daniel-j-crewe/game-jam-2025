@@ -22,6 +22,8 @@ public partial class CrystalTurret : StaticBody2D
     private List<Enemy> EnemiesInRange = new List<Enemy>();
 
     public SignalController signalController;
+    [Export]
+    public AnimatedSprite2D animatedSprite2D { get; set; }
 
 
     public override void _Ready()
@@ -30,7 +32,7 @@ public partial class CrystalTurret : StaticBody2D
         Parent = this.GetParent();
         signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
         signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
-
+        animatedSprite2D.Play();
         signalController.ResetLoop += AcknowledgeResetLoop;
 
     }
