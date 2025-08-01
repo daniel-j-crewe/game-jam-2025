@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://c2b6wmmdmybca"]
+[gd_scene load_steps=51 format=4 uid="uid://c2b6wmmdmybca"]
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
