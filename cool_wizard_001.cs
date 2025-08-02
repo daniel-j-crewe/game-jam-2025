@@ -9,6 +9,9 @@ public partial class cool_wizard_001 : CharacterBody2D
 	[Export]
 	public float Speed { get; set; }
 	[Export]
+	public float BoostedSpeed { get; set; }
+	private double boostTimer;
+	[Export]
 	public AnimatedSprite2D AnimatedSprite2D { get; set; }
 	[Export]
 	public TileMapLayer map { get; set; }
@@ -95,6 +98,8 @@ public partial class cool_wizard_001 : CharacterBody2D
 	{
 		base._PhysicsProcess(delta);
 
+		boostTimer -= delta;
+
 		PlacementIndicator.Visible = TurretPlaceModeActive;
 
 		if (TurretPlaceModeActive)
@@ -136,6 +141,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 					this.GlobalPosition = CurrentTeleporterEndNode.LinkedStartNode.GlobalPosition;
 				}
 			}
+
 		}
 
 
@@ -169,8 +175,8 @@ public partial class cool_wizard_001 : CharacterBody2D
 		}
 
 		Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
-		velocity.X = direction.X * Speed;
-		velocity.Y = direction.Y * Speed;
+		velocity.X = direction.X * (boostTimer > 0 ? BoostedSpeed : Speed);
+		velocity.Y = direction.Y * (boostTimer > 0 ? BoostedSpeed : Speed);
 		Velocity = velocity;
 		MoveAndSlide();
 
@@ -196,6 +202,11 @@ public partial class cool_wizard_001 : CharacterBody2D
 	{
 		GlobalPosition = StartPos;
 		SetPlayerText(GetNextDeathText());
+	}
+
+	public void SetBoostTimer(double TimerAmount)
+	{
+		boostTimer = TimerAmount;
 	}
 
 }
