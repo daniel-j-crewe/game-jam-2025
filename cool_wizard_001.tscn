@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bjae0vhow0ela" path="res://scenes/common/CrystalTurret/turret_placement_indicator.tscn" id="3_s6726"]
 [ext_resource type="PackedScene" uid="uid://da7gb6kd1nv3i" path="res://scenes/common/text_bubble.tscn" id="4_rnn5f"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4k2v"]
+atlas = ExtResource("2_a4k2v")
+region = Rect2(100, 10, 20, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6726"]
 atlas = ExtResource("2_a4k2v")
 region = Rect2(20, 15, 20, 20)
@@ -20,10 +24,6 @@ region = Rect2(60, 15, 20, 20)
 [sub_resource type="AtlasTexture" id="AtlasTexture_malo3"]
 atlas = ExtResource("2_a4k2v")
 region = Rect2(80, 15, 20, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a4k2v"]
-atlas = ExtResource("2_a4k2v")
-region = Rect2(100, 10, 20, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3vkh"]
 atlas = ExtResource("2_a4k2v")
@@ -69,6 +69,14 @@ region = Rect2(120, 34, 20, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_a4k2v")
+}],
+"loop": false,
+"name": &"awooga",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s6726")
 }, {
 "duration": 1.0,
@@ -82,14 +90,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a4k2v")
-}],
-"loop": false,
-"name": &"soy_face",
 "speed": 5.0
 }, {
 "frames": [{

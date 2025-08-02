@@ -169,6 +169,12 @@ public partial class cool_wizard_001 : CharacterBody2D
 			}
 		}
 
+		if (Input.IsActionJustPressed("SpaceBar"))
+		{
+			blockDefaultAnims = true;
+			AnimatedSprite2D.Play("awooga");
+		}
+
 		if (Input.IsActionJustPressed("CancelPlaceTurret"))
 		{
 			TurretPlaceModeActive = false;
