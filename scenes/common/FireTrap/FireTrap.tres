@@ -1,0 +1,55 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://b4ecot32upmnp"]
+
+[ext_resource type="Texture2D" uid="uid://cbcix0jn2ovje" path="res://entities/enemies/Fire0_01_16x16_Sheet.png" id="1_nlfov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc657"]
+atlas = ExtResource("1_nlfov")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b37k6"]
+atlas = ExtResource("1_nlfov")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l561e"]
+atlas = ExtResource("1_nlfov")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_182tp"]
+atlas = ExtResource("1_nlfov")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud45l"]
+atlas = ExtResource("1_nlfov")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc657")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b37k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l561e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_182tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud45l")
+}],
+"loop": true,
+"name": &"fire_cycle",
+"speed": 2.5
+}]

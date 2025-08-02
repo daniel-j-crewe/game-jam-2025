@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://crhsiqa0c1m2u"]
 
 [ext_resource type="Script" uid="uid://e8y0fp0oakan" path="res://scenes/Ending/EndingZone.cs" id="1_2fdl7"]
-[ext_resource type="Texture2D" uid="uid://di4fnlr72bqrs" path="res://entities/backgrounds/endImage.jpg" id="3_ht6l1"]
-[ext_resource type="Texture2D" uid="uid://dxqinf0ol3tw2" path="res://entities/backgrounds/Dungeon_Tileset.png" id="4_0piya"]
+[ext_resource type="Texture2D" uid="uid://dnu2kg1dd73mv" path="res://entities/backgrounds/Dungeon_Escape.png" id="2_ht6l1"]
+[ext_resource type="Texture2D" uid="uid://c1eiwpv10kg76" path="res://entities/backgrounds/credits.png" id="3_0piya"]
 
 [node name="EndingZone" type="Control" node_paths=PackedStringArray("EndScreen", "Credits")]
 layout_mode = 3
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_ht6l1")
+texture = ExtResource("2_ht6l1")
 expand_mode = 1
 
 [node name="Credits" type="TextureRect" parent="."]
@@ -36,5 +36,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_0piya")
+texture = ExtResource("3_0piya")
 expand_mode = 1
