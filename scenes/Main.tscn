@@ -1,9 +1,11 @@
-[gd_scene load_steps=51 format=4 uid="uid://c2b6wmmdmybca"]
+[gd_scene load_steps=54 format=4 uid="uid://c2b6wmmdmybca"]
+
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://dsal4di37d6ds" path="res://cool_wizard_001.tscn" id="2_3wkso"]
 [ext_resource type="Texture2D" uid="uid://dxqinf0ol3tw2" path="res://entities/backgrounds/Dungeon_Tileset.png" id="2_c01mt"]
+[ext_resource type="PackedScene" uid="uid://cq8d4jcsm46j3" path="res://globals/MusicPlayer.tscn" id="4_lhr70"]
 [ext_resource type="PackedScene" uid="uid://b73jipte5w60i" path="res://scenes/common/Chest/Chest.tscn" id="5_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
@@ -463,6 +465,9 @@ tile_set = SubResource("TileSet_hfpdd")
 position = Vector2(98, 60)
 map = NodePath("../Layer0")
 StartPos = Vector2(-22, 52)
+
+[node name="AudioStreamPlayer2D" parent="CoolWizard001" instance=ExtResource("4_lhr70")]
+volume_db = -5.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_nxtc6")]
 
