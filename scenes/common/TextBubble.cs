@@ -20,8 +20,8 @@ public partial class TextBubble : Control
     public override void _Process(double delta)
     {
         base._Process(delta);
-        TimeToShowS -= delta;
-        if (TimeToShowS < 0)
+        timer -= delta;
+        if (timer < 0)
         {
             this.Visible = false;
         }

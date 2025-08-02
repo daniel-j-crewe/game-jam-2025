@@ -154,4 +154,5 @@ public partial class Enemy : CharacterBody2D
 		}
 		return TargetPositions[CurrentTargetIndex];
 	}
+	
 }
