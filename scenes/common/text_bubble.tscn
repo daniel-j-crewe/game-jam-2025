@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://da7gb6kd1nv3i"]
+
+[ext_resource type="Script" uid="uid://dsqo5ct8maxi8" path="res://scenes/common/TextBubble.cs" id="1_g7jhg"]
+[ext_resource type="FontFile" uid="uid://c6ketj4khy8p0" path="res://QuinqueFive.ttf" id="2_koycc"]
+
+[sub_resource type="Theme" id="Theme_koycc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_na8vy"]
+bg_color = Color(0.192157, 0.654902, 0.819608, 0.552941)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 2
+
+[sub_resource type="Theme" id="Theme_na8vy"]
+default_font = ExtResource("2_koycc")
+
+[node name="TextBubble" type="Control" node_paths=PackedStringArray("TextLabel")]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1002.0
+offset_bottom = -588.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g7jhg")
+TextLabel = NodePath("Panel/Label")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 60.0
+theme = SubResource("Theme_koycc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_na8vy")
+
+[node name="Label" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme = SubResource("Theme_na8vy")
+theme_override_font_sizes/font_size = 5
+autowrap_mode = 3

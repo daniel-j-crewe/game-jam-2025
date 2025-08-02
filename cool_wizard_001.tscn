@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dsal4di37d6ds"]
+[gd_scene load_steps=22 format=3 uid="uid://dsal4di37d6ds"]
 
 [ext_resource type="Script" uid="uid://c33ttwcrdwojb" path="res://cool_wizard_001.cs" id="1_dghpe"]
 [ext_resource type="Texture2D" uid="uid://dwbg0574jddh7" path="res://entities/player/YeOldyNecroGuy.png" id="2_a4k2v"]
 [ext_resource type="PackedScene" uid="uid://bjae0vhow0ela" path="res://scenes/common/CrystalTurret/turret_placement_indicator.tscn" id="3_s6726"]
+[ext_resource type="PackedScene" uid="uid://da7gb6kd1nv3i" path="res://scenes/common/text_bubble.tscn" id="4_rnn5f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6726"]
 atlas = ExtResource("2_a4k2v")
@@ -135,11 +136,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqoxw"]
 size = Vector2(16, 16)
 
-[node name="CoolWizard001" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D", "PlacementIndicator")]
+[node name="CoolWizard001" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D", "textBubble", "PlacementIndicator")]
 motion_mode = 1
 script = ExtResource("1_dghpe")
 Speed = 100.0
 AnimatedSprite2D = NodePath("AnimatedSprite2D")
+textBubble = NodePath("TextBubble")
 PlacementIndicator = NodePath("TurretPlacementIndicator")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -153,3 +155,10 @@ shape = SubResource("RectangleShape2D_kqoxw")
 zoom = Vector2(6, 6)
 
 [node name="TurretPlacementIndicator" parent="." instance=ExtResource("3_s6726")]
+
+[node name="TextBubble" parent="." instance=ExtResource("4_rnn5f")]
+offset_left = -75.0
+offset_top = -69.0
+offset_right = 75.0
+offset_bottom = 6.0
+TimeToShowS = 5.0

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class cool_wizard_001 : CharacterBody2D
 {
@@ -24,6 +25,13 @@ public partial class cool_wizard_001 : CharacterBody2D
 	private bool blockDefaultAnims = false;
 	private bool validPlacementLocation;
 	private Vector2 placementPostion;
+	[Export]
+	public string[] DeathTexts;
+	private List<string> deathTextsList = new List<string>();
+
+	[Export]
+	public TextBubble textBubble { get; set; }
+
 
 	[Export]
 	public TurretPlacementIndicator PlacementIndicator { get; set; }
@@ -38,6 +46,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 
 		AnimatedSprite2D.AnimationFinished += ClearBlockAnims;
 		AnimatedSprite2D.Play("idle");
+		SetPlayerText("Pain is in the mind, like fear, or suffering, and other hateful things.");
 	}
 
 	private void ClearBlockAnims()
@@ -46,6 +55,11 @@ public partial class cool_wizard_001 : CharacterBody2D
 		{
 			blockDefaultAnims = false;
 		}
+	}
+
+	public void SetPlayerText(string text)
+	{
+		textBubble.SetText(text);
 	}
 
 	private static bool IsPlayerMoving()
