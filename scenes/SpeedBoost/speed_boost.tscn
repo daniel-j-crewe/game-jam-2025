@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjlfxlmc0x1rx"]
+
+[ext_resource type="Script" uid="uid://cwsyfe2rx325h" path="res://scenes/SpeedBoost/SpeedBoost.cs" id="1_4uybo"]
+[ext_resource type="Texture2D" uid="uid://o2x38fuhmbo4" path="res://entities/items/flasks/flasks_3_2.png" id="1_7sy5l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uybo"]
+size = Vector2(15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7rla"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7sy5l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SpeedBoost" type="Area2D"]
+script = ExtResource("1_4uybo")
+BoostDuration = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4uybo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l7rla")
+
+[connection signal="body_entered" from="." to="." method="BodyEntered"]
