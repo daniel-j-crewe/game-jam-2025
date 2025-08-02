@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpt738kvaxjpm"]
+
+[ext_resource type="Theme" uid="uid://cjhy6wcyxgmx6" path="res://ui/text_font.tres" id="1_6hpwr"]
+[ext_resource type="Script" uid="uid://dw0an1v11r8sv" path="res://scenes/common/volume_slider.gd" id="1_gl18d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hpwr"]
+bg_color = Color(0.290196, 0.623529, 0.909804, 0.141176)
+
+[node name="VolumeSliderPanel" type="Control"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 20.0
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(350, 20)
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6hpwr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(350, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6hpwr")
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("1_gl18d")
+bus_name = "music"

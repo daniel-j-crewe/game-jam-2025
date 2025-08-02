@@ -474,6 +474,7 @@ DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick
 
 [node name="AudioStreamPlayer2D" parent="CoolWizard001" instance=ExtResource("4_lhr70")]
 volume_db = -5.0
+bus = &"music"
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_nxtc6")]
 
