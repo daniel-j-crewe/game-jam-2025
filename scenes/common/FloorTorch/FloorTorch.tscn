@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://crcb7ff1oinkk"]
+
+[ext_resource type="Texture2D" uid="uid://dm7u0bj40q2jx" path="res://entities/items/torch/candlestick_2_1.png" id="1_nsi8w"]
+[ext_resource type="Script" uid="uid://diwwuw5m4p0oy" path="res://scenes/common/FloorTorch/FloorTorch.cs" id="1_wcf21"]
+[ext_resource type="Texture2D" uid="uid://dwdcye3ephn4a" path="res://entities/items/torch/candlestick_2_2.png" id="2_wcf21"]
+[ext_resource type="Texture2D" uid="uid://cbudrq60ngq3l" path="res://entities/items/torch/candlestick_2_3.png" id="3_8k0kf"]
+[ext_resource type="Texture2D" uid="uid://yd44nhu76s6g" path="res://entities/items/torch/candlestick_2_4.png" id="4_qaqhi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl04q"]
+size = Vector2(9, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6a58u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nsi8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wcf21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8k0kf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qaqhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nsi8w")
+}],
+"loop": false,
+"name": &"torchmode",
+"speed": 4.0
+}]
+
+[node name="FloorTorch" type="Node2D"]
+script = ExtResource("1_wcf21")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_wl04q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6a58u")
+animation = &"torchmode"
+frame = 4
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]

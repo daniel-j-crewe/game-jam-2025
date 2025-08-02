@@ -9,6 +9,7 @@ public partial class Chest : Node2D
 
 	public override void _Ready()
 	{
+		base._Ready();
 		Area2D area = GetNode<Area2D>("Area2D");
 		area.BodyEntered += OnBodyEntered;
 		area.BodyExited += OnBodyExit;
