@@ -9,7 +9,6 @@ public partial class HitRange : Area2D
 
 	public new void BodyEntered(Node2D node)
 	{
-		GD.Print("asdasdasda");
 		if (node is cool_wizard_001)
 		{
 			AttachedEnemy.signalController.EmitSignal("ResetLoop");

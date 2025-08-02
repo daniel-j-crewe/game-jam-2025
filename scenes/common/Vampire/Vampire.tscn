@@ -378,3 +378,7 @@ AttachedEnemy = NodePath("..")
 [node name="CollisionShape" type="CollisionShape2D" parent="HitRange"]
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_rbnea")
+
+[connection signal="body_entered" from="DetectionZone" to="DetectionZone" method="BodyEntered"]
+[connection signal="area_entered" from="HitRange" to="HitRange" method="AreaEntered"]
+[connection signal="body_entered" from="HitRange" to="HitRange" method="BodyEntered"]

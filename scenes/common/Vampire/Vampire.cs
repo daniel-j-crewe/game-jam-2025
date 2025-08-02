@@ -9,7 +9,7 @@ public partial class Vampire : CharacterBody2D
 	[Export]
 	public new float Velocity;
 	[Export]
-	public EnemyWaypoint[] Waypoints;
+	public VampireWaypoint[] Waypoints;
 	private List<Vector2> TargetPositions = new List<Vector2>();
 	private Vector2 CurrentTargetPos;
 	private Vector2 PreviousPos;
