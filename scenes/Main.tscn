@@ -1,15 +1,17 @@
-[gd_scene load_steps=54 format=4 uid="uid://c2b6wmmdmybca"]
+[gd_scene load_steps=56 format=4 uid="uid://c2b6wmmdmybca"]
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://dsal4di37d6ds" path="res://cool_wizard_001.tscn" id="2_3wkso"]
 [ext_resource type="Texture2D" uid="uid://dxqinf0ol3tw2" path="res://entities/backgrounds/Dungeon_Tileset.png" id="2_c01mt"]
-[ext_resource type="PackedScene" path="res://globals/MusicPlayer.tscn" id="4_lhr70"]
+[ext_resource type="PackedScene" uid="uid://cq8d4jcsm46j3" path="res://globals/MusicPlayer.tscn" id="4_lhr70"]
 [ext_resource type="PackedScene" uid="uid://b73jipte5w60i" path="res://scenes/common/Chest/Chest.tscn" id="5_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://c2t16yqgq8of7" path="res://scenes/Ending/ending_zone_trigger_zone.tscn" id="7_bjd11"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://cgegm4wgcynvk" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://bhooa2a3m4ftd" path="res://scenes/common/Teleporter/teleporterEndNode.tscn" id="10_lhr70"]
+[ext_resource type="PackedScene" uid="uid://crhsiqa0c1m2u" path="res://scenes/Ending/ending_zone.tscn" id="11_wp0k4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -475,6 +477,12 @@ DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick
 volume_db = -5.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_nxtc6")]
+
+[node name="EndingZone" parent="CanvasLayer" instance=ExtResource("11_wp0k4")]
+
+[node name="EndingZoneTriggerZone" parent="." node_paths=PackedStringArray("AttachedEndZone") instance=ExtResource("7_bjd11")]
+position = Vector2(2076, -1671)
+AttachedEndZone = NodePath("../CanvasLayer/EndingZone")
 
 [node name="SpikeTrap" parent="." instance=ExtResource("7_jlsqs")]
 position = Vector2(63, 8)
