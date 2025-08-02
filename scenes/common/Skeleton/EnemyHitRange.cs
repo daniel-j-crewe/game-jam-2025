@@ -18,6 +18,7 @@ public partial class EnemyHitRange : Area2D
         if (node is CrystalBullet)
         {
             AttachedEnemy.HitAndRemove();
+            node.QueueFree();
         }
     }
 }

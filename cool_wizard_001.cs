@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class cool_wizard_001 : CharacterBody2D
 {
@@ -43,10 +44,11 @@ public partial class cool_wizard_001 : CharacterBody2D
 
 		signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
 		signalController.ResetLoop += AcknowledgeResetLoop;
+		deathTextsList = DeathTexts.ToList();
+		RandomiseDeathList();
 
 		AnimatedSprite2D.AnimationFinished += ClearBlockAnims;
 		AnimatedSprite2D.Play("idle");
-		SetPlayerText("Pain is in the mind, like fear, or suffering, and other hateful things.");
 	}
 
 	private void ClearBlockAnims()
@@ -60,6 +62,25 @@ public partial class cool_wizard_001 : CharacterBody2D
 	public void SetPlayerText(string text)
 	{
 		textBubble.SetText(text);
+	}
+
+	private string GetNextDeathText()
+	{
+		string nextText = deathTextsList.FirstOrDefault();
+		if (string.IsNullOrEmpty(nextText))
+		{
+			deathTextsList = DeathTexts.ToList();
+			RandomiseDeathList();
+			nextText = deathTextsList.FirstOrDefault();
+		}
+		deathTextsList.Remove(nextText);
+		return nextText;
+	}
+
+	private void RandomiseDeathList()
+	{
+		Random rnd = new Random();
+		deathTextsList = deathTextsList.OrderBy<string, int>((item) => rnd.Next()).ToList();
 	}
 
 	private static bool IsPlayerMoving()
@@ -154,6 +175,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 	public void AcknowledgeResetLoop()
 	{
 		GlobalPosition = StartPos;
+		SetPlayerText(GetNextDeathText());
 	}
 
 }
