@@ -1,18 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx3jvy8ud4gru"]
+[gd_scene load_steps=7 format=3 uid="uid://dx3jvy8ud4gru"]
 
 [ext_resource type="Script" uid="uid://ct8ebeh0gnpt" path="res://scenes/common/leverdoorsystem/Door.cs" id="1_q3gik"]
-[ext_resource type="Texture2D" uid="uid://bc4i4klbhrslp" path="res://entities/items/flag/flag_1.png" id="2_24dif"]
+[ext_resource type="Texture2D" uid="uid://dxqinf0ol3tw2" path="res://entities/backgrounds/Dungeon_Tileset.png" id="2_24dif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwxw0"]
+size = Vector2(32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24dif"]
+atlas = ExtResource("2_24dif")
+region = Rect2(96, 96, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwxw0"]
+atlas = ExtResource("2_24dif")
+region = Rect2(112, 64, 32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jvaap"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_24dif")
+"texture": SubResource("AtlasTexture_24dif")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24dif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwxw0")
+}],
+"loop": false,
+"name": &"open",
 "speed": 5.0
 }]
 
@@ -25,3 +45,4 @@ shape = SubResource("RectangleShape2D_kwxw0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jvaap")
+animation = &"close"
