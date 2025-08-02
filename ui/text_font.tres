@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cjhy6wcyxgmx6"]
+
+[ext_resource type="FontFile" uid="uid://c6ketj4khy8p0" path="res://QuinqueFive.ttf" id="1_e1cgw"]
+
+[resource]
+default_font = ExtResource("1_e1cgw")
