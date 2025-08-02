@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj686n4u7ydae"]
+[gd_scene load_steps=8 format=3 uid="uid://cj686n4u7ydae"]
 
 [ext_resource type="Script" uid="uid://mej8mv4jm28u" path="res://scenes/common/leverdoorsystem/DoorLever.cs" id="1_busur"]
-[ext_resource type="Texture2D" uid="uid://bggwbrkw4k6xm" path="res://entities/items/box_1/box_1_1.png" id="1_yw54n"]
+[ext_resource type="Texture2D" uid="uid://j6yv6xh4bxy" path="res://entities/items/keys/keys_1_1.png" id="2_1j3im"]
+[ext_resource type="Texture2D" uid="uid://b0ow8xl7u3wee" path="res://entities/items/keys/keys_1_2.png" id="3_5034w"]
+[ext_resource type="Texture2D" uid="uid://kvw48mtse7dq" path="res://entities/items/keys/keys_1_3.png" id="4_by6qv"]
+[ext_resource type="Texture2D" uid="uid://h0bm5y3rt3xv" path="res://entities/items/keys/keys_1_4.png" id="5_g5rju"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_busur"]
 radius = 25.0
@@ -10,11 +13,20 @@ radius = 25.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_yw54n")
+"texture": ExtResource("2_1j3im")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5034w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_by6qv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g5rju")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [node name="DoorLever" type="Area2D"]
@@ -25,6 +37,7 @@ shape = SubResource("CircleShape2D_busur")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_23m16")
+frame_progress = 0.941715
 
 [connection signal="body_entered" from="." to="." method="BodyEntered"]
 [connection signal="body_exited" from="." to="." method="BodyExited"]

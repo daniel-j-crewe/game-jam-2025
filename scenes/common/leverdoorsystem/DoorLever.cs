@@ -25,4 +25,13 @@ public partial class DoorLever : Area2D
     {
         AttachedDoor.FlipState();
     }
+
+    public override void _Ready()
+    {
+        base._Ready();
+        
+        AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        sprite.Play("default");
+
+    }
 }
