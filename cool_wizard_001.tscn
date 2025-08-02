@@ -140,6 +140,7 @@ size = Vector2(16, 16)
 motion_mode = 1
 script = ExtResource("1_dghpe")
 Speed = 100.0
+BoostedSpeed = 300.0
 AnimatedSprite2D = NodePath("AnimatedSprite2D")
 DeathTexts = PackedStringArray("death1", "death2", "death3")
 textBubble = NodePath("TextBubble")
