@@ -2453,7 +2453,6 @@ position = Vector2(1798, -1075)
 LinkedStartNode = NodePath("../TeleporterStartNode2")
 
 [node name="TeleporterStartNode2" parent="." node_paths=PackedStringArray("LinkedEndNode") instance=ExtResource("11_wp0k4")]
-visible = true
 position = Vector2(18, 75)
 LinkedEndNode = NodePath("../teleporterEndNode2")
 
