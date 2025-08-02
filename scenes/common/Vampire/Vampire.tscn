@@ -1,9 +1,12 @@
-[gd_scene load_steps=53 format=3 uid="uid://0j6fl427aabq"]
+[gd_scene load_steps=56 format=3 uid="uid://0j6fl427aabq"]
 
+[ext_resource type="Script" uid="uid://lglaamybhfss" path="res://scenes/common/Vampire/Vampire.cs" id="1_hmtb3"]
 [ext_resource type="Texture2D" uid="uid://1n6bupkapjqe" path="res://entities/enemies/enemies-vampire_attack.png" id="1_il3aw"]
 [ext_resource type="Texture2D" uid="uid://dv3lg4lm3elf8" path="res://entities/enemies/enemies-vampire_death.png" id="2_26tol"]
 [ext_resource type="Texture2D" uid="uid://dchp80q6ynaun" path="res://entities/enemies/enemies-vampire_idle.png" id="3_k4gbc"]
 [ext_resource type="Texture2D" uid="uid://dgbnt1it4nkrd" path="res://entities/enemies/enemies-vampire_movement.png" id="4_tfp40"]
+[ext_resource type="Script" uid="uid://d3dl0m8owskte" path="res://scenes/common/Vampire/DetectionZone.cs" id="6_ff1lt"]
+[ext_resource type="Script" uid="uid://bf5wbg5npu3al" path="res://scenes/common/Vampire/HitRange.cs" id="6_vrq0a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mas72"]
 atlas = ExtResource("1_il3aw")
@@ -343,9 +346,13 @@ radius = 12.0
 radius = 83.0542
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rbnea"]
-radius = 15.0
+radius = 14.0
 
-[node name="Vampire" type="CharacterBody2D"]
+[node name="Vampire" type="CharacterBody2D" node_paths=PackedStringArray("Waypoints", "NavAgent")]
+script = ExtResource("1_hmtb3")
+Velocity = 50.0
+Waypoints = []
+NavAgent = NodePath("NavigationAgent")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_klv66")
@@ -357,13 +364,17 @@ shape = SubResource("CircleShape2D_qb777")
 
 [node name="NavigationAgent" type="NavigationAgent2D" parent="."]
 
-[node name="DetectionZone" type="Area2D" parent="."]
+[node name="DetectionZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
+script = ExtResource("6_ff1lt")
+AttachedEnemy = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+[node name="CollisionShape" type="CollisionShape2D" parent="DetectionZone"]
 shape = SubResource("CircleShape2D_mas72")
 
-[node name="HitRange" type="Area2D" parent="."]
+[node name="HitRange" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
+script = ExtResource("6_vrq0a")
+AttachedEnemy = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
+[node name="CollisionShape" type="CollisionShape2D" parent="HitRange"]
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_rbnea")
