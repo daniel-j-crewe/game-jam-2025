@@ -158,7 +158,6 @@ shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="EnemyDetectionZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy")]
 script = ExtResource("3_4ra3w")

@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=54 format=4 uid="uid://c2b6wmmdmybca"]
-
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
@@ -468,8 +466,10 @@ tile_set = SubResource("TileSet_hfpdd")
 position = Vector2(98, 60)
 map = NodePath("../Layer0")
 StartPos = Vector2(-22, 52)
-
-DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick of this damn place.", "*sigh*", "I miss my wife.", "Damn that hurt.", "When will this end?", "I\'m never going to get out, am I?", "All these deaths are beginning to blur together.", "Why do bad things happen to good people?", "Better get back on that metaphorical horse...", "Mother was right, I should\'ve been a doctor.", "Was I meant to go left there, or right? Does it matter?", "Pain is in the mind, like fear, or suffering, and other hateful things.", "If I see another skeleton I\'m going to lose my composure.", "Sunlight. You don\'t miss it until its gone.", "Maybe I should stay dead next time.", "This will not be my tomb!", "For some reason I\'m craving pancakes.", "Is that a saxophone I\'m hearing?", "If I still had spell slots I\'d be out of here by now.", "Wait a minute, is the floor purple?", "This is why you never split the party.", "So... this is just my home now.", "Maker, can you hear me? No, of course not. Stupid idea.", "If I still could, I\'d be crying right now. ", "I\'ve made it through worse. Not much worse, but still.", "Every time I\'m back here, a little part of me dies.", "**** this!", "Okay, I\'m ready to leave now, please.", "Tomorrow, and tomorrow, and tomorrow...", "")
+SpawnedTowerMovementVelocity = 50.0
+SpawnedTowerTimeToLive = 5.0
+SpawnedTowerRateOfFire = 0.5
+DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick of this damn place.", "*sigh*", "I miss my wife.", "Damn that hurt.", "When will this end?", "I\'m never going to get out, am I?", "All these deaths are beginning to blur together.", "Why do bad things happen to good people?", "Better get back on that metaphorical horse...", "Mother was right, I should\'ve been a doctor.", "Was I meant to go left there, or right? Does it matter?", "Pain is in the mind, like fear, or suffering, and other hateful things.", "If I see another skeleton I\'m going to lose my composure.", "Sunlight. You don\'t miss it until its gone.", "Maybe I should stay dead next time.", "This will not be my tomb!", "For some reason I\'m craving pancakes.", "Is that a saxophone I\'m hearing?", "If I still had spell slots I\'d be out of here by now.", "Wait a minute, is the floor purple?", "This is why you never split the party.", "So... this is just my home now.", "Maker, can you hear me? No, of course not. Stupid idea.", "If I still could, I\'d be crying right now. ", "I\'ve made it through worse. Not much worse, but still.", "Every time I\'m back here, a little part of me dies.", "**** this!", "Okay, I\'m ready to leave now, please.", "Tomorrow, and tomorrow, and tomorrow...")
 
 [node name="AudioStreamPlayer2D" parent="CoolWizard001" instance=ExtResource("4_lhr70")]
 volume_db = -5.0
@@ -482,25 +482,21 @@ position = Vector2(63, 8)
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(354, 298)
 StartPos = Vector2(354, 298)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(534, 297)
 StartPos = Vector2(534, 297)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(356, 442)
 StartPos = Vector2(356, 442)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(548, 442)
 StartPos = Vector2(548, 422)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
@@ -512,13 +508,11 @@ player = NodePath("../CoolWizard001")
 [node name="Enemy6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(412, -439)
 StartPos = Vector2(412, -439)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy7" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(444, -392)
 StartPos = Vector2(444, -392)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Node2D" parent="." instance=ExtResource("5_jlsqs")]
@@ -527,85 +521,71 @@ position = Vector2(-57, 253)
 [node name="Enemy8" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1582, 657)
 StartPos = Vector2(1582, 657)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy9" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1632, 735)
 StartPos = Vector2(1632, 735)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy10" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1579, 809)
 StartPos = Vector2(1579, 809)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy11" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1413, -266)
 StartPos = Vector2(1413, -266)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy12" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(236, 1599)
 StartPos = Vector2(236, 1599)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy13" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(490, 1627)
 StartPos = Vector2(490, 1627)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy14" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(703, 1585)
 StartPos = Vector2(703, 1585)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy15" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1217, 1614)
 StartPos = Vector2(1217, 1614)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy16" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1323, 1652)
 StartPos = Vector2(1323, 1652)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy17" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1432, 1586)
 StartPos = Vector2(1432, 1586)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy18" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1541, 1641)
 StartPos = Vector2(1541, 1641)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy19" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1047, -739)
 StartPos = Vector2(1047, -739)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy20" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1038, -1001)
 StartPos = Vector2(1038, -1001)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy21" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1289, -748)
 StartPos = Vector2(1289, -748)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy22" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
@@ -617,7 +597,6 @@ player = NodePath("../CoolWizard001")
 [node name="Enemy23" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(721, -1329)
 StartPos = Vector2(721, -1329)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Node2D2" parent="." instance=ExtResource("5_jlsqs")]
@@ -626,61 +605,51 @@ position = Vector2(-57, -366)
 [node name="Enemy24" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1212, 1142)
 StartPos = Vector2(1212, 1142)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy25" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1465, 1213)
 StartPos = Vector2(1465, 1213)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy26" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(692, 1012)
 StartPos = Vector2(692, 1012)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy27" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(831, 532)
 StartPos = Vector2(831, 532)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy28" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(759, -251)
 StartPos = Vector2(759, -251)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy29" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(451, -878)
 StartPos = Vector2(451, -878)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy30" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(209, -752)
 StartPos = Vector2(209, -752)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy31" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(63, -1113)
 StartPos = Vector2(63, -1113)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy32" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(90, -1218)
 StartPos = Vector2(90, -1218)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy33" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1470, -1143)
 StartPos = Vector2(1470, -1143)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Node2D3" parent="." instance=ExtResource("5_jlsqs")]
@@ -710,13 +679,11 @@ position = Vector2(1039, 111)
 [node name="Enemy34" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(540, -1136)
 StartPos = Vector2(540, -1136)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy35" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1073, -1227)
 StartPos = Vector2(1073, -1227)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Node2D11" parent="." instance=ExtResource("5_jlsqs")]
