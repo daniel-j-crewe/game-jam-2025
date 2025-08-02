@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://0j6fl427aabq"]
+[gd_scene load_steps=53 format=3 uid="uid://0j6fl427aabq"]
 
 [ext_resource type="Texture2D" uid="uid://1n6bupkapjqe" path="res://entities/enemies/enemies-vampire_attack.png" id="1_il3aw"]
 [ext_resource type="Texture2D" uid="uid://dv3lg4lm3elf8" path="res://entities/enemies/enemies-vampire_death.png" id="2_26tol"]
@@ -339,14 +339,31 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qb777"]
 radius = 12.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mas72"]
+radius = 83.0542
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rbnea"]
+radius = 15.0
+
 [node name="Vampire" type="CharacterBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_klv66")
 animation = &"walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_qb777")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent" type="NavigationAgent2D" parent="."]
+
+[node name="DetectionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
+shape = SubResource("CircleShape2D_mas72")
+
+[node name="HitRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_rbnea")
