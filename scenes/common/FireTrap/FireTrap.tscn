@@ -9,7 +9,7 @@ size = Vector2(16, 16)
 [node name="FireTrap" type="Node2D" node_paths=PackedStringArray("Sprite", "Area", "Timer")]
 script = ExtResource("1_4fhb0")
 ActivationInterval = 2.0
-OuchieFrames = PackedInt32Array(3, 4, 5, 6, 7)
+OuchieFrames = PackedInt32Array(4, 5, 6, 7)
 Sprite = NodePath("AnimatedSprite2D")
 Area = NodePath("Area2D")
 Timer = NodePath("Timer")
