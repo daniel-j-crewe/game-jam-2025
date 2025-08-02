@@ -49,7 +49,7 @@ public partial class CrystalTurret : StaticBody2D
     public override void _Process(double delta)
     {
         base._Process(delta);
-        if (isActive && CurrentTargetEnemy != null)
+        if (CurrentTargetEnemy != null)
         {
             rateCountdown -= delta;
             if (rateCountdown <= 0)
@@ -75,17 +75,17 @@ public partial class CrystalTurret : StaticBody2D
         GD.Print($"DeterminedTarget {closestEnemy == null}");
     }
 
-    public void PlayerEnteredActivationZone()
-    {
-        this.isActive = true;
-        GD.Print("player entered zone");
-    }
+    // public void PlayerEnteredActivationZone()
+    // {
+    //     this.isActive = true;
+    //     GD.Print("player entered zone");
+    // }
 
-    public void PlayerLeftActivationZone()
-    {
-        this.isActive = false;
-        GD.Print("player left zone");
-    }
+    // public void PlayerLeftActivationZone()
+    // {
+    //     this.isActive = false;
+    //     GD.Print("player left zone");
+    // }
 
     public void EnemyEnteredActivationZone(Enemy enemy)
     {
