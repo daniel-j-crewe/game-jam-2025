@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://ci4hwjm7u668v"]
+
+[ext_resource type="Script" uid="uid://deps0a3kiejrk" path="res://scenes/common/Teleporter/TeleporterStartNode.cs" id="1_ojenp"]
+[ext_resource type="Texture2D" uid="uid://cll24sgflwnby" path="res://entities/teleporter/Teleporter.png" id="2_3d1af"]
+[ext_resource type="Script" uid="uid://dvvug8cqxfnaq" path="res://scenes/common/Teleporter/StartInteractZone.cs" id="3_3d1af"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn26v"]
+atlas = ExtResource("2_3d1af")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ci58"]
+atlas = ExtResource("2_3d1af")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmuyf"]
+atlas = ExtResource("2_3d1af")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv464"]
+atlas = ExtResource("2_3d1af")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojenp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn26v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ci58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmuyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv464")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ojenp"]
+radius = 20.0
+
+[node name="TeleporterStartNode" type="Node2D" node_paths=PackedStringArray("CollisionShape2D", "Sprite")]
+visible = false
+script = ExtResource("1_ojenp")
+CollisionShape2D = NodePath("StartInteractZone/CollisionShape2D")
+Sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ojenp")
+
+[node name="StartInteractZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedStartNode")]
+script = ExtResource("3_3d1af")
+AttachedStartNode = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartInteractZone"]
+shape = SubResource("CircleShape2D_ojenp")
+
+[connection signal="body_entered" from="StartInteractZone" to="StartInteractZone" method="BodyEntered"]
+[connection signal="body_exited" from="StartInteractZone" to="StartInteractZone" method="BodyExited"]

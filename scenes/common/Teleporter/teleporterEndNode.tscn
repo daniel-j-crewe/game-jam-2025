@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhooa2a3m4ftd"]
+
+[ext_resource type="Shader" uid="uid://bmjsbgjuij48f" path="res://scenes/common/Teleporter/teleporterEndNode.gdshader" id="1_m08ic"]
+[ext_resource type="Script" uid="uid://c8m2mt6wuwi4k" path="res://scenes/common/Teleporter/TeleporterEndNode.cs" id="1_n702w"]
+[ext_resource type="Texture2D" uid="uid://cll24sgflwnby" path="res://entities/teleporter/Teleporter.png" id="2_5plkw"]
+[ext_resource type="Script" uid="uid://cl2xtm6xcr3dg" path="res://scenes/common/Teleporter/EndInteractZone.cs" id="3_5plkw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m08ic"]
+shader = ExtResource("1_m08ic")
+shader_parameter/weighted = true
+shader_parameter/isActive = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m08ic"]
+atlas = ExtResource("2_5plkw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaklc"]
+atlas = ExtResource("2_5plkw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iygry"]
+atlas = ExtResource("2_5plkw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr7q0"]
+atlas = ExtResource("2_5plkw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5plkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m08ic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaklc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iygry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr7q0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m08ic"]
+radius = 20.0
+
+[node name="teleporterEndNode" type="Node2D" node_paths=PackedStringArray("Sprite")]
+script = ExtResource("1_n702w")
+Sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_m08ic")
+sprite_frames = SubResource("SpriteFrames_5plkw")
+
+[node name="EndInteractZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEndNode")]
+script = ExtResource("3_5plkw")
+AttachedEndNode = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndInteractZone"]
+shape = SubResource("CircleShape2D_m08ic")
+
+[connection signal="body_entered" from="EndInteractZone" to="EndInteractZone" method="BodyEntered"]
+[connection signal="body_exited" from="EndInteractZone" to="EndInteractZone" method="BodyExited"]
