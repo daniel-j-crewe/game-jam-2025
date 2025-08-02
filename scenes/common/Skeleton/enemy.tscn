@@ -1,33 +1,33 @@
 [gd_scene load_steps=26 format=3 uid="uid://brbs6ofpc23in"]
 
-[ext_resource type="Texture2D" uid="uid://bdj03mmnqyn14" path="res://entities/enemies/enemies-skeleton1_idle.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://cipbvlf1rsdk8" path="res://scenes/common/Skeleton/Enemy.cs" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://c3ln247ooyutn" path="res://entities/enemies/enemies-skeleton2_idle.png" id="2_pknq2"]
 [ext_resource type="Script" uid="uid://b0oto84sw0d6h" path="res://scenes/common/Skeleton/EnemyDetectionZone.cs" id="3_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://d1gjxt5v0bv24" path="res://entities/enemies/enemies-skeleton2_movemen.png" id="3_pknq2"]
 [ext_resource type="Script" uid="uid://clsk3pog4k20i" path="res://scenes/common/Skeleton/EnemyHitRange.cs" id="4_5uy6h"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
-atlas = ExtResource("1_7p1mj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhpfa"]
+atlas = ExtResource("2_pknq2")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
-atlas = ExtResource("1_7p1mj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ts3u"]
+atlas = ExtResource("2_pknq2")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
-atlas = ExtResource("1_7p1mj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_855i7"]
+atlas = ExtResource("2_pknq2")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
-atlas = ExtResource("1_7p1mj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7k65"]
+atlas = ExtResource("2_pknq2")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
-atlas = ExtResource("1_7p1mj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkb6k"]
+atlas = ExtResource("2_pknq2")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_md484"]
-atlas = ExtResource("1_7p1mj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4fau"]
+atlas = ExtResource("2_pknq2")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kf34u"]
@@ -74,22 +74,22 @@ region = Rect2(288, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ra3w")
+"texture": SubResource("AtlasTexture_bhpfa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5uy6h")
+"texture": SubResource("AtlasTexture_8ts3u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c4w8v")
+"texture": SubResource("AtlasTexture_855i7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xwavj")
+"texture": SubResource("AtlasTexture_o7k65")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nenq2")
+"texture": SubResource("AtlasTexture_pkb6k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_md484")
+"texture": SubResource("AtlasTexture_l4fau")
 }],
 "loop": true,
 "name": &"idle",
@@ -149,8 +149,6 @@ NavAgent = NodePath("NavigationAgent2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ipns3")
 animation = &"idle"
-frame = 2
-frame_progress = 0.825334
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 5.5)
