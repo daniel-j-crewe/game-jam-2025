@@ -147,7 +147,7 @@ PlacementIndicator = NodePath("TurretPlacementIndicator")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xw1jd")
-animation = &"awooga"
+animation = &"idle"
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kqoxw")
