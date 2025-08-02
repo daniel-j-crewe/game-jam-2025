@@ -138,11 +138,11 @@ size = Vector2(15, 15)
 radius = 132.034
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
-size = Vector2(18, 18)
+size = Vector2(15, 15)
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Waypoints", "NavAgent")]
 script = ExtResource("1_md0e3")
-Velocity = 35.0
+Velocity = 60.0
 Waypoints = []
 NavAgent = NodePath("NavigationAgent2D")
 
@@ -170,7 +170,7 @@ script = ExtResource("4_5uy6h")
 AttachedEnemy = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitRange"]
-position = Vector2(-2, 5)
+position = Vector2(-1.5, 5.5)
 shape = SubResource("RectangleShape2D_c4w8v")
 
 [connection signal="body_entered" from="EnemyDetectionZone" to="EnemyDetectionZone" method="BodyEntered"]
