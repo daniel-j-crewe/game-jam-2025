@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq8d4jcsm46j3"]
+
+[ext_resource type="AudioStream" uid="uid://p4v75b226wpd" path="res://audio/groovy_sax.wav" id="1_xq43w"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_xq43w")
+autoplay = true
