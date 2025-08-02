@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://c2b6wmmdmybca"]
+[gd_scene load_steps=60 format=4 uid="uid://c2b6wmmdmybca"]
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxqinf0ol3tw2" path="res://entities/backgrounds/Dungeon_Tileset.png" id="2_c01mt"]
 [ext_resource type="PackedScene" uid="uid://cq8d4jcsm46j3" path="res://globals/MusicPlayer.tscn" id="4_lhr70"]
 [ext_resource type="PackedScene" uid="uid://b73jipte5w60i" path="res://scenes/common/Chest/Chest.tscn" id="5_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://crhsiqa0c1m2u" path="res://scenes/Ending/ending_zone.tscn" id="6_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://cgegm4wgcynvk" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
@@ -13,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ci4hwjm7u668v" path="res://scenes/common/Teleporter/teleporterStartNode.tscn" id="11_wp0k4"]
 [ext_resource type="PackedScene" uid="uid://dx3jvy8ud4gru" path="res://scenes/common/leverdoorsystem/door.tscn" id="12_qmy6f"]
 [ext_resource type="PackedScene" uid="uid://cj686n4u7ydae" path="res://scenes/common/leverdoorsystem/door_lever.tscn" id="13_mwfav"]
+[ext_resource type="PackedScene" uid="uid://c2t16yqgq8of7" path="res://scenes/Ending/ending_zone_trigger_zone.tscn" id="15_cvmbd"]
+[ext_resource type="PackedScene" uid="uid://wljkumyaha44" path="res://scenes/common/WallTorch/WallTorch.tscn" id="16_ft6cd"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -480,6 +483,9 @@ volume_db = -5.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_nxtc6")]
 
+[node name="EndingZone" parent="CanvasLayer" instance=ExtResource("6_3p2gp")]
+TimeForEndScreen = 10.0
+
 [node name="SpikeTrap" parent="." instance=ExtResource("7_jlsqs")]
 position = Vector2(63, 8)
 
@@ -652,8 +658,8 @@ StartPos = Vector2(90, -1218)
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy33" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
-position = Vector2(1470, -1143)
-StartPos = Vector2(1470, -1143)
+position = Vector2(1424, -1150)
+StartPos = Vector2(1424, -1150)
 player = NodePath("../CoolWizard001")
 
 [node name="Node2D3" parent="." instance=ExtResource("5_jlsqs")]
@@ -683,11 +689,6 @@ position = Vector2(1039, 111)
 [node name="Enemy34" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(540, -1136)
 StartPos = Vector2(540, -1136)
-player = NodePath("../CoolWizard001")
-
-[node name="Enemy35" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
-position = Vector2(1073, -1227)
-StartPos = Vector2(1073, -1227)
 player = NodePath("../CoolWizard001")
 
 [node name="Node2D11" parent="." instance=ExtResource("5_jlsqs")]
@@ -867,3 +868,58 @@ position = Vector2(444, 455)
 
 [node name="SpikeTrap21" parent="." instance=ExtResource("7_jlsqs")]
 position = Vector2(460, 455)
+
+[node name="EndingZoneTriggerZone" parent="." node_paths=PackedStringArray("AttachedEndZone") instance=ExtResource("15_cvmbd")]
+position = Vector2(2065, -1671)
+AttachedEndZone = NodePath("../CanvasLayer/EndingZone")
+
+[node name="DialogueTrigger5" parent="." instance=ExtResource("9_q8u5g")]
+position = Vector2(1870, -1669)
+TextToShow = "Is that sunlight I see?"
+
+[node name="WallTorch" parent="." instance=ExtResource("16_ft6cd")]
+position = Vector2(-71, 85)
+
+[node name="WallTorch2" parent="." instance=ExtResource("16_ft6cd")]
+position = Vector2(-72, 18)
+
+[node name="SpikeTrap22" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(39, 600)
+
+[node name="SpikeTrap23" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(23, 600)
+
+[node name="SpikeTrap24" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(7, 600)
+
+[node name="SpikeTrap25" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(-8, 600)
+
+[node name="SpikeTrap26" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(-23, 649)
+
+[node name="SpikeTrap27" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(-7, 649)
+
+[node name="SpikeTrap28" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(9, 649)
+
+[node name="SpikeTrap29" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(25, 649)
+
+[node name="SpikeTrap30" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(39, 701)
+
+[node name="SpikeTrap31" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(23, 701)
+
+[node name="SpikeTrap32" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(7, 701)
+
+[node name="SpikeTrap33" parent="." instance=ExtResource("7_jlsqs")]
+position = Vector2(-9, 701)
+
+[node name="Enemy35" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
+position = Vector2(225, 511)
+StartPos = Vector2(225, 511)
+player = NodePath("../CoolWizard001")
