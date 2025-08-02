@@ -7,8 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b73jipte5w60i" path="res://scenes/common/Chest/Chest.tscn" id="5_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://crcb7ff1oinkk" path="res://scenes/common/FloorTorch/FloorTorch.tscn" id="8_jlsqs"]
 [ext_resource type="PackedScene" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
+=======
+[ext_resource type="PackedScene" uid="uid://ci4hwjm7u668v" path="res://scenes/common/Teleporter/teleporterStartNode.tscn" id="8_q8u5g"]
+[ext_resource type="PackedScene" uid="uid://bhooa2a3m4ftd" path="res://scenes/common/Teleporter/teleporterEndNode.tscn" id="9_lhr70"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -696,6 +701,7 @@ position = Vector2(113, 8)
 [node name="SpikeTrap4" parent="." instance=ExtResource("7_jlsqs")]
 position = Vector2(113, 124)
 
+<<<<<<< Updated upstream
 [node name="Enemy36" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(306, 1658)
 StartPos = Vector2(306, 1658)
@@ -779,3 +785,12 @@ TextToShow = "A skeleton. Just what every dank dungeon needs."
 [node name="DialogueTrigger3" parent="." instance=ExtResource("9_q8u5g")]
 position = Vector2(126, 360)
 TextToShow = "I bet if I press Q I could place this crystal turret!"
+=======
+[node name="TeleporterStartNode" parent="." node_paths=PackedStringArray("LinkedEndNode") instance=ExtResource("8_q8u5g")]
+position = Vector2(61, 68)
+LinkedEndNode = NodePath("../teleporterEndNode")
+
+[node name="teleporterEndNode" parent="." node_paths=PackedStringArray("LinkedStartNode") instance=ExtResource("9_lhr70")]
+position = Vector2(85, -37)
+LinkedStartNode = NodePath("../TeleporterStartNode")
+>>>>>>> Stashed changes

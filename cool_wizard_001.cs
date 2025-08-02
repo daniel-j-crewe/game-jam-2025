@@ -22,6 +22,8 @@ public partial class cool_wizard_001 : CharacterBody2D
 	[Export]
 	public double SpawnedTowerRateOfFire;
 	public DoorLever CurrentDoorLever { get; set; }
+	public TeleporterStartNode CurrentTeleporterStartNode { get; set; }
+	public TeleporterEndNode CurrentTeleporterEndNode { get; set; }
 	private bool TurretPlaceModeActive = false;
 	private bool blockDefaultAnims = false;
 	private bool validPlacementLocation;
@@ -115,6 +117,24 @@ public partial class cool_wizard_001 : CharacterBody2D
 			if (CurrentDoorLever != null)
 			{
 				CurrentDoorLever.PullLever();
+			}
+			if (CurrentTeleporterStartNode != null)
+			{
+				if (CurrentTeleporterStartNode.IsActive && CurrentTeleporterStartNode.LinkedEndNode != null)
+				{
+					this.GlobalPosition = CurrentTeleporterStartNode.LinkedEndNode.GlobalPosition;
+				}
+			}
+			if (CurrentTeleporterEndNode != null)
+			{
+				if (!CurrentTeleporterEndNode.IsActive)
+				{
+					CurrentTeleporterEndNode.SetActive();
+				}
+				else if (CurrentTeleporterEndNode.IsActive && CurrentTeleporterEndNode.LinkedStartNode != null)
+				{
+					this.GlobalPosition = CurrentTeleporterEndNode.LinkedStartNode.GlobalPosition;
+				}
 			}
 		}
 
