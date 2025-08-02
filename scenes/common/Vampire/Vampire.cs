@@ -21,6 +21,7 @@ public partial class Vampire : CharacterBody2D
 	public cool_wizard_001 player { get; set; }
 	[Export]
 	public bool AggroTrackingEnabled { get; set; }
+	private bool MunchZone = false;
 	double navUpdateTimer = 0;
 	double navUpdateTime = 0.2;
 	private Node parent;
@@ -84,24 +85,24 @@ public partial class Vampire : CharacterBody2D
 
 		Vector2 MovementDifferential = GlobalPosition - PreviousPos;
 
-		if (MovementDifferential.LengthSquared() > 0.01f)
+		if (MunchZone)
+		{
+			sprite.Play("attack");
+		}
+		else if (MovementDifferential.LengthSquared() > 0.01f)
 		{
 			if (sprite.Animation != "walk")
-			{
 				sprite.Play("walk");
-			}
-
-
-			if (Mathf.Abs(MovementDifferential.X) > 0.01f)
-			{
-				sprite.FlipH = MovementDifferential.X < 0;
-			}
-
 		}
 		else
 		{
 			if (sprite.Animation != "idle")
 				sprite.Play("idle");
+		}
+
+		if (Mathf.Abs(MovementDifferential.X) > 0.01f)
+		{
+			sprite.FlipH = MovementDifferential.X < 0;
 		}
 
 		PreviousPos = GlobalPosition;
@@ -116,6 +117,11 @@ public partial class Vampire : CharacterBody2D
 	public void VisionZoneEntered()
 	{
 		AggroTrackingEnabled = true;
+	}
+
+	public void MunchZoneToggle(bool updatedBool = false)
+	{
+		MunchZone = updatedBool;
 	}
 
 	public void HitAndRemove()
