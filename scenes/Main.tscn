@@ -2445,11 +2445,3 @@ ActivationInterval = 6.0
 [node name="FireTrap31" parent="." instance=ExtResource("21_1iba3")]
 position = Vector2(1780, -1434)
 ActivationInterval = 6.0
-
-[node name="teleporterEndNode2" parent="." node_paths=PackedStringArray("LinkedStartNode") instance=ExtResource("10_lhr70")]
-position = Vector2(49, 68)
-LinkedStartNode = NodePath("../TeleporterStartNode2")
-
-[node name="TeleporterStartNode2" parent="." node_paths=PackedStringArray("LinkedEndNode") instance=ExtResource("11_wp0k4")]
-position = Vector2(1776, -1169)
-LinkedEndNode = NodePath("../teleporterEndNode2")
