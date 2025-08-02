@@ -344,7 +344,7 @@ animations = [{
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mas72"]
-radius = 83.0542
+radius = 90.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rbnea"]
 radius = 14.0
