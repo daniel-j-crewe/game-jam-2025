@@ -62,7 +62,6 @@ public partial class CrystalTurret : StaticBody2D
                 bullet.DirectionToMoveIn = this.GlobalPosition.DirectionTo(CurrentTargetEnemy.GlobalPosition);
                 bullet.TimeToLive = TimeToLive;
                 Holder.AddChild(bullet);
-                this.LookAt(GlobalPosition + this.GlobalPosition.DirectionTo(CurrentTargetEnemy.GlobalPosition));
                 Holder.RotationDegrees = -1 * this.RotationDegrees;
             }
         }
@@ -74,7 +73,6 @@ public partial class CrystalTurret : StaticBody2D
         closestEnemy = EnemiesInRange.OrderBy(x => x.GlobalPosition.DistanceTo(this.GlobalPosition)).FirstOrDefault();
         CurrentTargetEnemy = closestEnemy;
         GD.Print($"DeterminedTarget {closestEnemy == null}");
-
     }
 
     public void PlayerEnteredActivationZone()
