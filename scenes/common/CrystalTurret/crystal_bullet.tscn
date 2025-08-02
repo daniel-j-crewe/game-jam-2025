@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bba3p43ivokj5"]
+[gd_scene load_steps=7 format=3 uid="uid://bba3p43ivokj5"]
 
-[ext_resource type="Texture2D" uid="uid://cyjadombsr5lv" path="res://entities/backgrounds/arrow_1.png" id="1_abydk"]
 [ext_resource type="Script" uid="uid://w8mi1npopbpp" path="res://scenes/common/CrystalTurret/CrystalBullet.cs" id="1_mfejn"]
+[ext_resource type="Texture2D" uid="uid://cmhkmntt04whp" path="res://entities/items/flamethrower/flamethrower_2_2.png" id="2_mfejn"]
+[ext_resource type="Shader" uid="uid://nuqww73k3n6w" path="res://scenes/common/CrystalTurret/crystal_bullet.gdshader" id="2_t08ro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfejn"]
 size = Vector2(8, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pu31t"]
+shader = ExtResource("2_t08ro")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t08ro"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_abydk")
+"texture": ExtResource("2_mfejn")
 }],
 "loop": true,
 "name": &"default",
@@ -25,6 +29,9 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_mfejn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_pu31t")
+position = Vector2(0, 1)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_t08ro")
 
 [connection signal="body_entered" from="." to="." method="BodyEntered"]

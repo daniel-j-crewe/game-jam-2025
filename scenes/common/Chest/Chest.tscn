@@ -39,7 +39,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw86l"]
@@ -53,7 +53,7 @@ script = ExtResource("1_1gprw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ugagp")
-animation = &"open"
+animation = &"idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 
