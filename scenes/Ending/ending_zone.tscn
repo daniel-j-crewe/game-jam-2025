@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://crhsiqa0c1m2u"]
+
+[ext_resource type="Script" uid="uid://e8y0fp0oakan" path="res://scenes/Ending/EndingZone.cs" id="1_2fdl7"]
+[ext_resource type="Texture2D" uid="uid://di4fnlr72bqrs" path="res://entities/backgrounds/endImage.jpg" id="3_ht6l1"]
+[ext_resource type="Texture2D" uid="uid://dxqinf0ol3tw2" path="res://entities/backgrounds/Dungeon_Tileset.png" id="4_0piya"]
+
+[node name="EndingZone" type="Control" node_paths=PackedStringArray("EndScreen", "Credits")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fdl7")
+EndScreen = NodePath("EndScreen")
+Credits = NodePath("Credits")
+TimeForEndScreen = 5.0
+TimeForCredits = 5.0
+
+[node name="EndScreen" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ht6l1")
+expand_mode = 1
+
+[node name="Credits" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0piya")
+expand_mode = 1
