@@ -131,7 +131,8 @@ public partial class Vampire : CharacterBody2D
 
 	public void RestoreToMap()
 	{
-		if (!parent.GetChildren().Contains(this)) parent.AddChild(this);
+		if (!parent.GetChildren().Contains(this)) parent.CallDeferred("add_child", this);
+
 	}
 
 	private void OrganiseTargetPositions()

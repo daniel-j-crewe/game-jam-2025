@@ -7,12 +7,15 @@ public partial class EndingZoneTriggerZone : Area2D
     public EndingZone AttachedEndZone { get; set; }
     [Export]
     public AudioStreamPlayer2D VictorySound { get; set; }
+    [Export]
+    public AudioStreamPlayer2D MainMusic { get; set; }
     public new void BodyEntered(Node2D node)
     {
         if (node is cool_wizard_001)
         {
             AttachedEndZone.StartEnding();
             VictorySound.Play();
+            MainMusic.Stop();
         }
     }
 }
