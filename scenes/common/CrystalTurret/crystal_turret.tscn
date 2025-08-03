@@ -38,7 +38,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j4ksy"]
-radius = 44.0454
+radius = 121.0
 
 [node name="CrystalTurret" type="StaticBody2D" node_paths=PackedStringArray("Holder", "animatedSprite2D", "TurretAttackSound")]
 script = ExtResource("1_x8nuo")
