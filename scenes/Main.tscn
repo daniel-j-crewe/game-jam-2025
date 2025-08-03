@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://c2b6wmmdmybca"]
+[gd_scene load_steps=71 format=4 uid="uid://c2b6wmmdmybca"]
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://0j6fl427aabq" path="res://scenes/common/Vampire/Vampire.tscn" id="18_bb450"]
 [ext_resource type="PackedScene" uid="uid://dy0ddsiqlvgqj" path="res://scenes/common/FireTrap/FireTrap.tscn" id="21_1iba3"]
 [ext_resource type="PackedScene" uid="uid://crcb7ff1oinkk" path="res://scenes/common/FloorTorch/FloorTorch.tscn" id="23_ebg2g"]
+[ext_resource type="PackedScene" path="res://scenes/common/penguin.tscn" id="24_2ofn6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -1888,12 +1889,13 @@ position = Vector2(444, 455)
 [node name="SpikeTrap21" parent="." instance=ExtResource("7_jlsqs")]
 position = Vector2(460, 455)
 
-[node name="EndingZoneTriggerZone" parent="." node_paths=PackedStringArray("AttachedEndZone") instance=ExtResource("15_cvmbd")]
+[node name="EndingZoneTriggerZone" parent="." node_paths=PackedStringArray("AttachedEndZone", "MainMusic") instance=ExtResource("15_cvmbd")]
 position = Vector2(2065, -1671)
 AttachedEndZone = NodePath("../CanvasLayer/EndingZone")
+MainMusic = NodePath("../CoolWizard001/AudioStreamPlayer2D")
 
 [node name="DialogueTrigger5" parent="." instance=ExtResource("9_q8u5g")]
-position = Vector2(1865, -1672)
+position = Vector2(1890, -1672)
 TextToShow = "Is that sunlight I see?"
 
 [node name="WallTorch" parent="." instance=ExtResource("16_ft6cd")]
@@ -2499,13 +2501,22 @@ SpawnPoint = Vector2(490, 1402)
 Velocity = 85.0
 player = NodePath("../CoolWizard001")
 
+[node name="Penguin" parent="." instance=ExtResource("24_2ofn6")]
+position = Vector2(1782, -1691)
+scale = Vector2(0.1, 0.1)
+frame_progress = 0.888873
+
+[node name="DialogueTrigger8" parent="." instance=ExtResource("9_q8u5g")]
+position = Vector2(1784, -1607)
+TextToShow = "It was you... All along..."
+
 [node name="CoolWizard001" parent="." node_paths=PackedStringArray("map") instance=ExtResource("2_3wkso")]
 position = Vector2(98, 60)
 BoostedSpeed = 200.0
 map = NodePath("../Layer0")
 StartPos = Vector2(-22, 52)
 SpawnedTowerMovementVelocity = 100.0
-SpawnedTowerTimeToLive = 10.0
+SpawnedTowerTimeToLive = 5.0
 SpawnedTowerRateOfFire = 1.25
 DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick of this damn place.", "*sigh*", "I miss my wife.", "Damn that hurt.", "When will this end?", "I\'m never going to get out, am I?", "All these deaths are beginning to blur together.", "Why do bad things happen to good people?", "Better get back on that metaphorical horse...", "Mother was right, I should\'ve been a doctor.", "Was I meant to go left there, or right? Does it matter?", "Pain is in the mind, like fear, or suffering, and other hateful things.", "If I see another skeleton I\'m going to lose my composure.", "Sunlight. You don\'t miss it until its gone.", "Maybe I should stay dead next time.", "This will not be my tomb!", "For some reason I\'m craving pancakes.", "Is that a saxophone I\'m hearing?", "If I still had spell slots I\'d be out of here by now.", "Wait a minute, is the floor purple?", "This is why you never split the party.", "So... this is just my home now.", "Maker, can you hear me? No, of course not. Stupid idea.", "If I still could, I\'d be crying right now. ", "I\'ve made it through worse. Not much worse, but still.", "Every time I\'m back here, a little part of me dies.", "**** this!", "Okay, I\'m ready to leave now, please.", "Tomorrow, and tomorrow, and tomorrow...")
 
