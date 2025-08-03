@@ -1806,10 +1806,10 @@ pattern_7 = SubResource("TileMapPattern_wp0k4")
 script = ExtResource("1_vcsgt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -5475.0
-offset_top = -5084.0
-offset_right = 4745.0
-offset_bottom = 4257.0
+offset_left = -5561.0
+offset_top = -4919.0
+offset_right = 4659.0
+offset_bottom = 4422.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.145098, 0.0745098, 0.101961, 1)
@@ -2470,3 +2470,29 @@ DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick
 [node name="AudioStreamPlayer2D" parent="CoolWizard001" instance=ExtResource("4_lhr70")]
 volume_db = -5.0
 bus = &"music"
+
+
+[node name="DialogueTrigger7" parent="." instance=ExtResource("9_q8u5g")]
+position = Vector2(1227, -912)
+TextToShow = "Ooh! Is that a teleporter?"
+
+[node name="SpeedBoost2" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(858, 357)
+
+[node name="SpeedBoost5" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(441, 123)
+
+[node name="SpeedBoost16" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(120, 768)
+
+[node name="SpeedBoost17" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(970, 1024)
+
+[node name="SpeedBoost18" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(1429, 916)
+
+[node name="SpeedBoost19" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(1465, 382)
+
+[node name="SpeedBoost20" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(1684, 90)
