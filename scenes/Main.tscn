@@ -2223,7 +2223,6 @@ player = NodePath("../CoolWizard001")
 [node name="Enemy22" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
 position = Vector2(1325, -1005)
 StartPos = Vector2(1325, -1005)
-Velocity = 0.0
 player = NodePath("../CoolWizard001")
 
 [node name="Enemy23" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_rarhs")]
