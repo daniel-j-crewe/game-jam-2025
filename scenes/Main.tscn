@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=69 format=4 uid="uid://c2b6wmmdmybca"]
-
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
@@ -13,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://crhsiqa0c1m2u" path="res://scenes/Ending/ending_zone.tscn" id="6_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
-[ext_resource type="PackedScene" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
+[ext_resource type="PackedScene" uid="uid://cgegm4wgcynvk" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://bpt738kvaxjpm" path="res://scenes/common/VolumeSliderPanel.tscn" id="9_yxlcp"]
 [ext_resource type="PackedScene" uid="uid://bhooa2a3m4ftd" path="res://scenes/common/Teleporter/teleporterEndNode.tscn" id="10_lhr70"]
 [ext_resource type="PackedScene" uid="uid://ci4hwjm7u668v" path="res://scenes/common/Teleporter/teleporterStartNode.tscn" id="11_wp0k4"]
@@ -24,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://cjlfxlmc0x1rx" path="res://scenes/SpeedBoost/speed_boost.tscn" id="17_ft6cd"]
 [ext_resource type="PackedScene" uid="uid://0j6fl427aabq" path="res://scenes/common/Vampire/Vampire.tscn" id="18_bb450"]
 [ext_resource type="PackedScene" uid="uid://dy0ddsiqlvgqj" path="res://scenes/common/FireTrap/FireTrap.tscn" id="21_1iba3"]
-
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -1809,10 +1806,10 @@ pattern_7 = SubResource("TileMapPattern_wp0k4")
 script = ExtResource("1_vcsgt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -5475.0
-offset_top = -5084.0
-offset_right = 4745.0
-offset_bottom = 4257.0
+offset_left = -5561.0
+offset_top = -4919.0
+offset_right = 4659.0
+offset_bottom = 4422.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.145098, 0.0745098, 0.101961, 1)
@@ -2343,7 +2340,6 @@ TextToShow = "I bet if I press Q I could place a crystal turret!"
 position = Vector2(57, -139)
 TextToShow = "A skeleton. Just what every dank dungeon needs."
 
-
 [node name="teleporterEndNode" parent="." node_paths=PackedStringArray("LinkedStartNode") instance=ExtResource("10_lhr70")]
 position = Vector2(1176, -864)
 LinkedStartNode = NodePath("../TeleporterStartNode")
@@ -2475,3 +2471,27 @@ DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick
 volume_db = -5.0
 bus = &"music"
 
+[node name="DialogueTrigger7" parent="." instance=ExtResource("9_q8u5g")]
+position = Vector2(1227, -912)
+TextToShow = "Ooh! Is that a teleporter?"
+
+[node name="SpeedBoost2" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(858, 357)
+
+[node name="SpeedBoost5" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(441, 123)
+
+[node name="SpeedBoost16" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(120, 768)
+
+[node name="SpeedBoost17" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(970, 1024)
+
+[node name="SpeedBoost18" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(1429, 916)
+
+[node name="SpeedBoost19" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(1465, 382)
+
+[node name="SpeedBoost20" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(1684, 90)

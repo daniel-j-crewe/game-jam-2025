@@ -18,12 +18,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="SpeedBoost" type="Area2D" node_paths=PackedStringArray("audioStreamPlayer2D")]
+[node name="SpeedBoost" type="Area2D"]
 script = ExtResource("1_4uybo")
-
-audioStreamPlayer2D = NodePath("AudioStreamPlayer2D")
 BoostDuration = 1.5
-
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4uybo")
