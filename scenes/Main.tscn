@@ -2470,6 +2470,3 @@ DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick
 [node name="AudioStreamPlayer2D" parent="CoolWizard001" instance=ExtResource("4_lhr70")]
 volume_db = -5.0
 bus = &"music"
-
-[node name="FireTrap" parent="CoolWizard001" instance=ExtResource("21_1iba3")]
-position = Vector2(-34, 14)
