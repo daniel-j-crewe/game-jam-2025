@@ -11,19 +11,14 @@ public partial class EndingZone : Control
     [Export]
     public double TimeForEndScreen { get; set; }
     private double endTimer;
-    [Export]
-    public double TimeForCredits { get; set; }
     private double creditTimer;
     bool isEndActive = false;
-    bool isCreditsActive = false;
 
     public void StartEnding()
     {
         endTimer = TimeForEndScreen;
         isEndActive = true;
         EndScreen.Visible = true;
-        GD.Print("showend");
-
     }
 
     public override void _Process(double delta)
@@ -39,17 +34,6 @@ public partial class EndingZone : Control
                 isEndActive = false;
                 EndScreen.Visible = false;
                 Credits.Visible = true;
-                isCreditsActive = true;
-                creditTimer = TimeForCredits;
-            }
-        }
-        if (isCreditsActive)
-        {
-
-            creditTimer -= delta;
-            if (creditTimer < 0)
-            {
-                GetTree().Quit();
             }
         }
     }

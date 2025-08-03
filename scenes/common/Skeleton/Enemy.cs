@@ -7,6 +7,9 @@ public partial class Enemy : CharacterBody2D
 	[Export]
 	public Vector2 StartPos;
 	[Export]
+	public double InitialAggroDisableTime = 0.5;
+	private double savedAggroTime;
+	[Export]
 	public float Velocity;
 	public Vector2[] TargetPosArray;
 	[Export]
@@ -28,6 +31,8 @@ public partial class Enemy : CharacterBody2D
 	private bool BoneZone = false;
 	private bool queuedForRemoval = false;
 
+
+
 	public SignalController signalController;
 
 	public override void _Ready()
@@ -42,7 +47,7 @@ public partial class Enemy : CharacterBody2D
 		NavAgent.TargetPosition = player.GlobalPosition;
 		signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
 		signalController.ResetLoop += AcknowledgeResetLoop;
-
+		savedAggroTime = InitialAggroDisableTime;
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		sprite.Play("idle");
 
@@ -54,6 +59,7 @@ public partial class Enemy : CharacterBody2D
 		GlobalPosition = StartPos;
 		CurrentTargetPos = TargetPositions[0];
 		RestoreToMap();
+		InitialAggroDisableTime = savedAggroTime;
 	}
 
 	public void BoneZoneToggle(bool updatedBool = false)
@@ -64,13 +70,16 @@ public partial class Enemy : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		base._PhysicsProcess(delta);
+		if (!(InitialAggroDisableTime < 0))
+			InitialAggroDisableTime -= delta;
 		if (queuedForRemoval)
 		{
 			queuedForRemoval = false;
-			if (parent.GetChildren().Contains(this)) parent.RemoveChild(this);
+			if (this.GetParent() != null && this.GetParent().GetChildren().Contains(this)) parent.RemoveChild(this);
 			return;
 		}
 		navUpdateTimer -= delta;
+		if (AggroTrackingEnabled) GD.Print("aggroed");
 
 		if (navUpdateTimer < 0)
 		{
@@ -121,7 +130,8 @@ public partial class Enemy : CharacterBody2D
 
 	public void VisionZoneEntered()
 	{
-		AggroTrackingEnabled = true;
+		if (InitialAggroDisableTime < 0)
+			AggroTrackingEnabled = true;
 	}
 
 	public void HitAndRemove()
@@ -131,7 +141,7 @@ public partial class Enemy : CharacterBody2D
 
 	public void RestoreToMap()
 	{
-		if (!parent.GetChildren().Contains(this)) parent.CallDeferred("add_child",this); 
+		if (!parent.GetChildren().Contains(this) && this.GetParent() == null) parent.CallDeferred("add_child", this);
 	}
 
 	private void OrganiseTargetPositions()
