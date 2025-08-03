@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://brbs6ofpc23in"]
+[gd_scene load_steps=44 format=3 uid="uid://brbs6ofpc23in"]
 
 [ext_resource type="Script" uid="uid://cipbvlf1rsdk8" path="res://scenes/common/Skeleton/Enemy.cs" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://c7wvdxh6chss3" path="res://entities/enemies/enemies-skeleton2_attack.png" id="2_kf34u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b0oto84sw0d6h" path="res://scenes/common/Skeleton/EnemyDetectionZone.cs" id="3_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://d1gjxt5v0bv24" path="res://entities/enemies/enemies-skeleton2_movemen.png" id="3_pknq2"]
 [ext_resource type="Script" uid="uid://clsk3pog4k20i" path="res://scenes/common/Skeleton/EnemyHitRange.cs" id="4_5uy6h"]
+[ext_resource type="Script" uid="uid://ds75mikv0ew7i" path="res://scenes/common/Skeleton/BoneZone.cs" id="7_ev12y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4j61"]
 atlas = ExtResource("2_kf34u")
@@ -251,6 +252,9 @@ radius = 132.034
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
 size = Vector2(15, 15)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kf34u"]
+radius = 74.027
+
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("Waypoints", "NavAgent")]
 script = ExtResource("1_md0e3")
 Velocity = 60.0
@@ -283,6 +287,15 @@ AttachedEnemy = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitRange"]
 position = Vector2(-1.5, 5.5)
 shape = SubResource("RectangleShape2D_c4w8v")
+
+[node name="BoneZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy", "Area")]
+script = ExtResource("7_ev12y")
+AttachedEnemy = NodePath("..")
+Area = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoneZone"]
+position = Vector2(-1, 5)
+shape = SubResource("CircleShape2D_kf34u")
 
 [connection signal="body_entered" from="EnemyDetectionZone" to="EnemyDetectionZone" method="BodyEntered"]
 [connection signal="area_entered" from="EnemyHitRange" to="EnemyHitRange" method="AreaEntered"]

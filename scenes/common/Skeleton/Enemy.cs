@@ -25,6 +25,7 @@ public partial class Enemy : CharacterBody2D
 	double navUpdateTimer = 0;
 	double navUpdateTime = 0.2;
 	private Node parent;
+	private bool BoneZone = false;
 	private bool queuedForRemoval = false;
 
 	public SignalController signalController;
@@ -55,6 +56,10 @@ public partial class Enemy : CharacterBody2D
 		RestoreToMap();
 	}
 
+	public void BoneZoneToggle(bool updatedBool = false)
+	{
+		BoneZone = updatedBool;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -85,24 +90,24 @@ public partial class Enemy : CharacterBody2D
 
 		Vector2 MovementDifferential = GlobalPosition - PreviousPos;
 
-		if (MovementDifferential.LengthSquared() > 0.01f)
+		if (BoneZone)
+		{
+			sprite.Play("attack");
+		}
+		else if (MovementDifferential.LengthSquared() > 0.01f)
 		{
 			if (sprite.Animation != "walk")
-			{
 				sprite.Play("walk");
-			}
-
-
-			if (Mathf.Abs(MovementDifferential.X) > 0.01f)
-			{
-				sprite.FlipH = MovementDifferential.X < 0;
-			}
-
 		}
 		else
 		{
 			if (sprite.Animation != "idle")
 				sprite.Play("idle");
+		}
+
+		if (Mathf.Abs(MovementDifferential.X) > 0.01f)
+		{
+			sprite.FlipH = MovementDifferential.X < 0;
 		}
 
 		PreviousPos = GlobalPosition;
