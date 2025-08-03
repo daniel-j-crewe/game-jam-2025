@@ -25,7 +25,8 @@ public partial class CrystalTurret : StaticBody2D
     [Export]
     public AnimatedSprite2D animatedSprite2D { get; set; }
 
-
+	[Export]
+	public AudioStreamPlayer2D TurretAttackSound { get; set; }
 
     public override void _Ready()
     {
@@ -63,6 +64,7 @@ public partial class CrystalTurret : StaticBody2D
                 bullet.TimeToLive = TimeToLive;
                 Holder.AddChild(bullet);
                 Holder.RotationDegrees = -1 * this.RotationDegrees;
+                TurretAttackSound.Play();
             }
         }
     }

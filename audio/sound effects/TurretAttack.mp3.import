@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpbohbl2t37q"
+path="res://.godot/imported/TurretAttack.mp3-d32ec6bcdf32a21c9f67328195176d77.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/TurretAttack.mp3"
+dest_files=["res://.godot/imported/TurretAttack.mp3-d32ec6bcdf32a21c9f67328195176d77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

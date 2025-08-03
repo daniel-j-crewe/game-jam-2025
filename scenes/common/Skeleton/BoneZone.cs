@@ -4,12 +4,15 @@ public partial class BoneZone : Area2D
 {
 	[Export] public Enemy AttachedEnemy { get; set; }
 	[Export] public Area2D Area { get; set; }
+		[Export]
+	public AudioStreamPlayer2D SkeleAttackSound { get; set; }
 
 	public void OnBodyEntered(Node2D node)
 	{
 		if (node is cool_wizard_001)
 		{
 			AttachedEnemy.BoneZoneToggle(true);
+			SkeleAttackSound.Play();
 		}
 	}
 
@@ -18,6 +21,7 @@ public partial class BoneZone : Area2D
 		if (node is cool_wizard_001)
 		{
 			AttachedEnemy.BoneZoneToggle(false);
+			SkeleAttackSound.Stop();
 		}
 	}
 

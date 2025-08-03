@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cj686n4u7ydae"]
+[gd_scene load_steps=9 format=3 uid="uid://cj686n4u7ydae"]
 
 [ext_resource type="Script" uid="uid://mej8mv4jm28u" path="res://scenes/common/leverdoorsystem/DoorLever.cs" id="1_busur"]
 [ext_resource type="Texture2D" uid="uid://j6yv6xh4bxy" path="res://entities/items/keys/keys_1_1.png" id="2_1j3im"]
 [ext_resource type="Texture2D" uid="uid://b0ow8xl7u3wee" path="res://entities/items/keys/keys_1_2.png" id="3_5034w"]
 [ext_resource type="Texture2D" uid="uid://kvw48mtse7dq" path="res://entities/items/keys/keys_1_3.png" id="4_by6qv"]
 [ext_resource type="Texture2D" uid="uid://h0bm5y3rt3xv" path="res://entities/items/keys/keys_1_4.png" id="5_g5rju"]
+[ext_resource type="AudioStream" uid="uid://ccqap33gf258u" path="res://audio/sound effects/DoorUnlock.wav" id="6_5034w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_busur"]
 radius = 25.0
@@ -29,8 +30,9 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="DoorLever" type="Area2D"]
+[node name="DoorLever" type="Area2D" node_paths=PackedStringArray("DoorUnlockSound")]
 script = ExtResource("1_busur")
+DoorUnlockSound = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_busur")
@@ -38,6 +40,10 @@ shape = SubResource("CircleShape2D_busur")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_23m16")
 frame_progress = 0.941715
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5034w")
+bus = &"sfx"
 
 [connection signal="body_entered" from="." to="." method="BodyEntered"]
 [connection signal="body_exited" from="." to="." method="BodyExited"]

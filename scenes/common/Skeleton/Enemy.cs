@@ -27,6 +27,7 @@ public partial class Enemy : CharacterBody2D
 	private Node parent;
 	private bool BoneZone = false;
 	private bool queuedForRemoval = false;
+	private bool queuedForAddition = false;
 
 	public SignalController signalController;
 
@@ -64,6 +65,13 @@ public partial class Enemy : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		base._PhysicsProcess(delta);
+		if (queuedForAddition)
+		{
+			queuedForAddition = false;
+			if (!parent.GetChildren().Contains(this)) parent.AddChild(this);
+			GD.Print("adding enemy back");
+			return;
+		}
 		if (queuedForRemoval)
 		{
 			queuedForRemoval = false;
@@ -131,7 +139,8 @@ public partial class Enemy : CharacterBody2D
 
 	public void RestoreToMap()
 	{
-		if (!parent.GetChildren().Contains(this)) parent.AddChild(this);
+		if (!parent.GetChildren().Contains(this)) parent.CallDeferred("add_child",this); 
+		//queuedForAddition = true;
 	}
 
 	private void OrganiseTargetPositions()
@@ -159,5 +168,5 @@ public partial class Enemy : CharacterBody2D
 		}
 		return TargetPositions[CurrentTargetIndex];
 	}
-	
+
 }

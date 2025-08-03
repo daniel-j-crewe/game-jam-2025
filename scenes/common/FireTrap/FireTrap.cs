@@ -16,6 +16,8 @@ public partial class FireTrap : Node2D
 	private bool PlayerInDangerZone = false;
 	public SignalController signalController;
 
+	[Export] public AudioStreamPlayer2D TrapSound { get; set; }
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -55,6 +57,7 @@ public partial class FireTrap : Node2D
 	{
 		Sprite.Play(ActivationAnimation);
 		Timer.WaitTime = ActivationInterval;
+		TrapSound.Play();
 	}
 
 	private void OnBodyEntered(Node2D body)

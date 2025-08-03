@@ -6,6 +6,8 @@ public partial class Chest : Node2D
 
 	private bool _playerCanOpen = false;
 	private bool _opened = false;
+	[Export]
+	public AudioStreamPlayer2D ChestOpen { get; set; }
 
 	public override void _Ready()
 	{
@@ -40,6 +42,7 @@ public partial class Chest : Node2D
 
 		AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		sprite.Play("open");
+		ChestOpen.Play();
 
 		_opened = true;
 

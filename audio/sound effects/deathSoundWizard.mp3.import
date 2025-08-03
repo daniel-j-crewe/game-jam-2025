@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://umetnfhgsib3"
+path="res://.godot/imported/deathSoundWizard.mp3-86ad9eaff1fdd7185e73336ff720b7b7.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/deathSoundWizard.mp3"
+dest_files=["res://.godot/imported/deathSoundWizard.mp3-86ad9eaff1fdd7185e73336ff720b7b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

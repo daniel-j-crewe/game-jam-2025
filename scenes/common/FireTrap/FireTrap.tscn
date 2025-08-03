@@ -1,18 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy0ddsiqlvgqj"]
+[gd_scene load_steps=5 format=3 uid="uid://dy0ddsiqlvgqj"]
 
 [ext_resource type="Script" uid="uid://doo6ybmkhehqj" path="res://scenes/common/FireTrap/FireTrap.cs" id="1_4fhb0"]
 [ext_resource type="SpriteFrames" uid="uid://b4ecot32upmnp" path="res://scenes/common/FireTrap/FireTrap.tres" id="2_y5ork"]
+[ext_resource type="AudioStream" uid="uid://b8ve3eo4ovjlq" path="res://audio/sound effects/firetrapsound.wav" id="3_y5ork"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o7pl"]
 size = Vector2(16, 16)
 
-[node name="FireTrap" type="Node2D" node_paths=PackedStringArray("Sprite", "Area", "Timer")]
+[node name="FireTrap" type="Node2D" node_paths=PackedStringArray("Sprite", "Area", "Timer", "TrapSound")]
 script = ExtResource("1_4fhb0")
-ActivationInterval = 2.0
+ActivationInterval = 3.2
 OuchieFrames = PackedInt32Array(4, 5, 6, 7)
 Sprite = NodePath("AnimatedSprite2D")
 Area = NodePath("Area2D")
 Timer = NodePath("Timer")
+TrapSound = NodePath("AudioStreamPlayer2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_y5ork")
@@ -24,3 +26,8 @@ animation = &"fire_cycle"
 shape = SubResource("RectangleShape2D_4o7pl")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y5ork")
+volume_db = -2.441
+bus = &"sfx"

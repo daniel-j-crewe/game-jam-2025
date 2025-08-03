@@ -39,6 +39,10 @@ public partial class cool_wizard_001 : CharacterBody2D
 	public TextBubble textBubble { get; set; }
 	[Export]
 	public AudioStreamPlayer2D TurretPlaceSound { get; set; }
+	[Export]
+	public AudioStreamPlayer2D AwoogaSound { get; set; }
+	[Export]
+	public AudioStreamPlayer2D DeathSound { get; set; }
 
 
 	[Export]
@@ -163,7 +167,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 				blockDefaultAnims = true;
 				AnimatedSprite2D.Play("wack");
 				TurretPlaceModeActive = false;
-				GD.Print($"placed turret {placementPostion}");
+				TurretPlaceSound.Play();
 			}
 			else
 			{
@@ -175,6 +179,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 		{
 			blockDefaultAnims = true;
 			AnimatedSprite2D.Play("awooga");
+			AwoogaSound.Play();
 		}
 
 		if (Input.IsActionJustPressed("CancelPlaceTurret"))
@@ -210,6 +215,7 @@ public partial class cool_wizard_001 : CharacterBody2D
 	{
 		GlobalPosition = StartPos;
 		SetPlayerText(GetNextDeathText());
+		DeathSound.Play();
 	}
 
 	public void SetBoostTimer(double TimerAmount)

@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=69 format=4 uid="uid://c2b6wmmdmybca"]
-
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
@@ -13,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://crhsiqa0c1m2u" path="res://scenes/Ending/ending_zone.tscn" id="6_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
-[ext_resource type="PackedScene" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
+[ext_resource type="PackedScene" uid="uid://cgegm4wgcynvk" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://bpt738kvaxjpm" path="res://scenes/common/VolumeSliderPanel.tscn" id="9_yxlcp"]
 [ext_resource type="PackedScene" uid="uid://bhooa2a3m4ftd" path="res://scenes/common/Teleporter/teleporterEndNode.tscn" id="10_lhr70"]
 [ext_resource type="PackedScene" uid="uid://ci4hwjm7u668v" path="res://scenes/common/Teleporter/teleporterStartNode.tscn" id="11_wp0k4"]
@@ -24,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://cjlfxlmc0x1rx" path="res://scenes/SpeedBoost/speed_boost.tscn" id="17_ft6cd"]
 [ext_resource type="PackedScene" uid="uid://0j6fl427aabq" path="res://scenes/common/Vampire/Vampire.tscn" id="18_bb450"]
 [ext_resource type="PackedScene" uid="uid://dy0ddsiqlvgqj" path="res://scenes/common/FireTrap/FireTrap.tscn" id="21_1iba3"]
-
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -2343,7 +2340,6 @@ TextToShow = "I bet if I press Q I could place a crystal turret!"
 position = Vector2(57, -139)
 TextToShow = "A skeleton. Just what every dank dungeon needs."
 
-
 [node name="teleporterEndNode" parent="." node_paths=PackedStringArray("LinkedStartNode") instance=ExtResource("10_lhr70")]
 position = Vector2(1176, -864)
 LinkedStartNode = NodePath("../TeleporterStartNode")
@@ -2475,3 +2471,5 @@ DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick
 volume_db = -5.0
 bus = &"music"
 
+[node name="FireTrap" parent="CoolWizard001" instance=ExtResource("21_1iba3")]
+position = Vector2(-34, 14)
