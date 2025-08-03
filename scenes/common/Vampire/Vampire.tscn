@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://0j6fl427aabq"]
+[gd_scene load_steps=59 format=3 uid="uid://0j6fl427aabq"]
 
 [ext_resource type="Script" uid="uid://lglaamybhfss" path="res://scenes/common/Vampire/Vampire.cs" id="1_hmtb3"]
 [ext_resource type="Texture2D" uid="uid://1n6bupkapjqe" path="res://entities/enemies/enemies-vampire_attack.png" id="1_il3aw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d3dl0m8owskte" path="res://scenes/common/Vampire/DetectionZone.cs" id="6_ff1lt"]
 [ext_resource type="Script" uid="uid://bf5wbg5npu3al" path="res://scenes/common/Vampire/HitRange.cs" id="6_vrq0a"]
 [ext_resource type="Script" uid="uid://b43qm8l30u2jl" path="res://scenes/common/Vampire/MunchZone.cs" id="8_ff1lt"]
+[ext_resource type="AudioStream" uid="uid://cfy5jwsjc5e80" path="res://audio/sound effects/VampireAttack.wav" id="9_uucig"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mas72"]
 atlas = ExtResource("1_il3aw")
@@ -360,7 +361,7 @@ NavAgent = NodePath("NavigationAgent")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_klv66")
-animation = &"walk"
+animation = &"attack"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)
@@ -383,14 +384,20 @@ AttachedEnemy = NodePath("..")
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_rbnea")
 
-[node name="MunchZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy", "Area")]
+[node name="MunchZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy", "Area", "MunchSound")]
 script = ExtResource("8_ff1lt")
 AttachedEnemy = NodePath("..")
 Area = NodePath(".")
+MunchSound = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MunchZone"]
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_vrq0a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MunchZone"]
+stream = ExtResource("9_uucig")
+volume_db = -1.465
+bus = &"sfx"
 
 [connection signal="body_entered" from="DetectionZone" to="DetectionZone" method="BodyEntered"]
 [connection signal="area_entered" from="HitRange" to="HitRange" method="AreaEntered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b73jipte5w60i"]
+[gd_scene load_steps=12 format=3 uid="uid://b73jipte5w60i"]
 
 [ext_resource type="Script" uid="uid://dhw8uteajgsdy" path="res://scenes/common/Chest/Chest.cs" id="1_1gprw"]
 [ext_resource type="Texture2D" uid="uid://7k76dux27t2q" path="res://entities/items/chest/chest_3.png" id="1_b6k6s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dhj8vbqrmp15" path="res://entities/items/chest/chest_open_2.png" id="4_qp2do"]
 [ext_resource type="Texture2D" uid="uid://b72efdxpp01c0" path="res://entities/items/chest/chest_open_3.png" id="5_kt0ko"]
 [ext_resource type="Texture2D" uid="uid://cnwb0opaa3hpg" path="res://entities/items/chest/chest_open_4.png" id="6_w6vif"]
+[ext_resource type="AudioStream" uid="uid://d0e06rklm48hq" path="res://audio/sound effects/ChestOpen.wav" id="8_aqgyu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ugagp"]
 animations = [{
@@ -48,8 +49,9 @@ size = Vector2(14, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gprw"]
 size = Vector2(14, 12)
 
-[node name="Chest" type="Node2D"]
+[node name="Chest" type="Node2D" node_paths=PackedStringArray("ChestOpen")]
 script = ExtResource("1_1gprw")
+ChestOpen = NodePath("ChestOpenSound")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ugagp")
@@ -66,3 +68,8 @@ one_way_collision_margin = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_1gprw")
+
+[node name="ChestOpenSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_aqgyu")
+volume_db = -2.441
+bus = &"sfx"

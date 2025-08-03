@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsal4di37d6ds"]
+[gd_scene load_steps=24 format=3 uid="uid://dsal4di37d6ds"]
 
 [ext_resource type="Script" uid="uid://c33ttwcrdwojb" path="res://cool_wizard_001.cs" id="1_dghpe"]
 [ext_resource type="Texture2D" uid="uid://dwbg0574jddh7" path="res://entities/player/YeOldyNecroGuy.png" id="2_a4k2v"]
 [ext_resource type="PackedScene" uid="uid://bjae0vhow0ela" path="res://scenes/common/CrystalTurret/turret_placement_indicator.tscn" id="3_s6726"]
 [ext_resource type="PackedScene" uid="uid://da7gb6kd1nv3i" path="res://scenes/common/text_bubble.tscn" id="4_rnn5f"]
+[ext_resource type="AudioStream" uid="uid://bvu2hgfjkfe6m" path="res://audio/sound effects/wtfSound.mp3" id="5_qmur3"]
+[ext_resource type="AudioStream" uid="uid://umetnfhgsib3" path="res://audio/sound effects/deathSoundWizard.mp3" id="6_malo3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4k2v"]
 atlas = ExtResource("2_a4k2v")
@@ -136,7 +138,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqoxw"]
 size = Vector2(10, 14)
 
-[node name="CoolWizard001" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D", "textBubble", "PlacementIndicator")]
+[node name="CoolWizard001" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D", "textBubble", "TurretPlaceSound", "AwoogaSound", "DeathSound", "PlacementIndicator")]
 motion_mode = 1
 script = ExtResource("1_dghpe")
 Speed = 100.0
@@ -144,6 +146,9 @@ BoostedSpeed = 300.0
 AnimatedSprite2D = NodePath("AnimatedSprite2D")
 DeathTexts = PackedStringArray("death1", "death2", "death3")
 textBubble = NodePath("TextBubble")
+TurretPlaceSound = NodePath("TurretPlaceSound")
+AwoogaSound = NodePath("AwoogaSound")
+DeathSound = NodePath("DeathSound")
 PlacementIndicator = NodePath("TurretPlacementIndicator")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -165,3 +170,14 @@ offset_top = -69.0
 offset_right = 75.0
 offset_bottom = 6.0
 TimeToShowS = 5.0
+
+[node name="TurretPlaceSound" type="AudioStreamPlayer2D" parent="."]
+bus = &"sfx"
+
+[node name="AwoogaSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qmur3")
+bus = &"sfx"
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_malo3")
+bus = &"sfx"

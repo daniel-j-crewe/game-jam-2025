@@ -22,6 +22,9 @@ animations = [{
 script = ExtResource("1_4uybo")
 BoostDuration = 1.5
 
+audioStreamPlayer2D = NodePath("AudioStreamPlayer2D")
+
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4uybo")
 
@@ -30,6 +33,7 @@ sprite_frames = SubResource("SpriteFrames_l7rla")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_l7rla")
+volume_db = -0.488
 bus = &"sfx"
 
 [connection signal="body_entered" from="." to="." method="BodyEntered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://brbs6ofpc23in"]
+[gd_scene load_steps=45 format=3 uid="uid://brbs6ofpc23in"]
 
 [ext_resource type="Script" uid="uid://cipbvlf1rsdk8" path="res://scenes/common/Skeleton/Enemy.cs" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://c7wvdxh6chss3" path="res://entities/enemies/enemies-skeleton2_attack.png" id="2_kf34u"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d1gjxt5v0bv24" path="res://entities/enemies/enemies-skeleton2_movemen.png" id="3_pknq2"]
 [ext_resource type="Script" uid="uid://clsk3pog4k20i" path="res://scenes/common/Skeleton/EnemyHitRange.cs" id="4_5uy6h"]
 [ext_resource type="Script" uid="uid://ds75mikv0ew7i" path="res://scenes/common/Skeleton/BoneZone.cs" id="7_ev12y"]
+[ext_resource type="AudioStream" uid="uid://idhvl7c0n65x" path="res://audio/sound effects/SkeletonAttack.wav" id="8_s2ykm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4j61"]
 atlas = ExtResource("2_kf34u")
@@ -263,7 +264,7 @@ NavAgent = NodePath("NavigationAgent2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ipns3")
-animation = &"idle"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 5.5)
@@ -288,14 +289,19 @@ AttachedEnemy = NodePath("..")
 position = Vector2(-1.5, 5.5)
 shape = SubResource("RectangleShape2D_c4w8v")
 
-[node name="BoneZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy", "Area")]
+[node name="BoneZone" type="Area2D" parent="." node_paths=PackedStringArray("AttachedEnemy", "Area", "SkeleAttackSound")]
 script = ExtResource("7_ev12y")
 AttachedEnemy = NodePath("..")
 Area = NodePath(".")
+SkeleAttackSound = NodePath("SkeleAttackSound")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoneZone"]
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_kf34u")
+
+[node name="SkeleAttackSound" type="AudioStreamPlayer2D" parent="BoneZone"]
+stream = ExtResource("8_s2ykm")
+bus = &"sfx"
 
 [connection signal="body_entered" from="EnemyDetectionZone" to="EnemyDetectionZone" method="BodyEntered"]
 [connection signal="area_entered" from="EnemyHitRange" to="EnemyHitRange" method="AreaEntered"]

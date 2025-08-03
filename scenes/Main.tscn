@@ -2471,6 +2471,7 @@ DeathTexts = PackedStringArray("Back again, and so it goes.", "I\'m getting sick
 volume_db = -5.0
 bus = &"music"
 
+
 [node name="DialogueTrigger7" parent="." instance=ExtResource("9_q8u5g")]
 position = Vector2(1227, -912)
 TextToShow = "Ooh! Is that a teleporter?"
