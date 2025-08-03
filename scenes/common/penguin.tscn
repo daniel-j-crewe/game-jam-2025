@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b535o7a154x8b"]
+
+[ext_resource type="Texture2D" uid="uid://drs4f58ed2ssn" path="res://entities/penguin-hat-playing-saxophone-pixel-260nw-2167123407.png" id="1_23wg1"]
+[ext_resource type="Script" uid="uid://clmvwfetalbnv" path="res://scenes/common/Penguin.cs" id="2_4xujn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xujn"]
+atlas = ExtResource("1_23wg1")
+region = Rect2(0, 0, 260, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xjam"]
+atlas = ExtResource("1_23wg1")
+region = Rect2(0, 280, 260, 280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t18jc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xujn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xjam")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Penguin" type="AnimatedSprite2D" node_paths=PackedStringArray("sprite")]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_t18jc")
+script = ExtResource("2_4xujn")
+sprite = NodePath(".")
