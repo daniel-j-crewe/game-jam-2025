@@ -136,7 +136,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqoxw"]
-size = Vector2(10, 14)
+size = Vector2(10, 8)
 
 [node name="CoolWizard001" type="CharacterBody2D" node_paths=PackedStringArray("AnimatedSprite2D", "textBubble", "TurretPlaceSound", "AwoogaSound", "DeathSound", "PlacementIndicator")]
 motion_mode = 1
@@ -156,7 +156,7 @@ sprite_frames = SubResource("SpriteFrames_xw1jd")
 animation = &"idle"
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_kqoxw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
