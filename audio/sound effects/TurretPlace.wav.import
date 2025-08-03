@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cn6ngwqg0e2yj"
+path="res://.godot/imported/TurretPlace.wav-6c9b64801d6161bf16d48afce2ef8b29.sample"
+
+[deps]
+
+source_file="res://audio/sound effects/TurretPlace.wav"
+dest_files=["res://.godot/imported/TurretPlace.wav-6c9b64801d6161bf16d48afce2ef8b29.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

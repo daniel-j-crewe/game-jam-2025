@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://c2b6wmmdmybca"]
+[gd_scene load_steps=55 format=4 uid="uid://c2b6wmmdmybca"]
 
 [ext_resource type="PackedScene" uid="uid://brbs6ofpc23in" path="res://scenes/common/Skeleton/enemy.tscn" id="1_rarhs"]
 [ext_resource type="Script" uid="uid://o6ovfkprntty" path="res://scenes/SignalController.cs" id="1_vcsgt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://cgegm4wgcynvk" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://bhooa2a3m4ftd" path="res://scenes/common/Teleporter/teleporterEndNode.tscn" id="10_lhr70"]
+[ext_resource type="PackedScene" uid="uid://cjlfxlmc0x1rx" path="res://scenes/SpeedBoost/speed_boost.tscn" id="11_wp0k4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_c01mt"]
 tile_data = PackedInt32Array(0, 3, 0, 1, 65539, 0, 2, 131075, 0, 3, 196611, 0, 4, 262147, 0, 5, 327683, 0)
@@ -717,3 +718,6 @@ TextToShow = "A skeleton. Just what every dank dungeon needs."
 
 [node name="teleporterEndNode" parent="." instance=ExtResource("10_lhr70")]
 position = Vector2(449, 378)
+
+[node name="SpeedBoost" parent="." instance=ExtResource("11_wp0k4")]
+position = Vector2(25, 74)
