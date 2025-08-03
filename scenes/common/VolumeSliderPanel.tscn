@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpt738kvaxjpm"]
 
 [ext_resource type="Theme" uid="uid://cjhy6wcyxgmx6" path="res://ui/text_font.tres" id="1_6hpwr"]
-[ext_resource type="Script" uid="uid://dw0an1v11r8sv" path="res://scenes/common/volume_slider.gd" id="1_gl18d"]
+[ext_resource type="Script" path="res://scenes/common/volume_slider.gd" id="1_gl18d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hpwr"]
 bg_color = Color(0.290196, 0.623529, 0.909804, 0.141176)

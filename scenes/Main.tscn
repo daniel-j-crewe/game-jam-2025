@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://crhsiqa0c1m2u" path="res://scenes/Ending/ending_zone.tscn" id="6_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://bryj1gbehqqag" path="res://scenes/common/SpikeTrap/spike_trap.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://bn0e8hoqg680u" path="res://ui/inventory.tscn" id="7_nxtc6"]
-[ext_resource type="PackedScene" uid="uid://cgegm4wgcynvk" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
+[ext_resource type="PackedScene" path="res://scenes/common/dialogue_trigger.tscn" id="9_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://bpt738kvaxjpm" path="res://scenes/common/VolumeSliderPanel.tscn" id="9_yxlcp"]
 [ext_resource type="PackedScene" uid="uid://bhooa2a3m4ftd" path="res://scenes/common/Teleporter/teleporterEndNode.tscn" id="10_lhr70"]
 [ext_resource type="PackedScene" uid="uid://ci4hwjm7u668v" path="res://scenes/common/Teleporter/teleporterStartNode.tscn" id="11_wp0k4"]
@@ -1831,7 +1831,8 @@ TimeForEndScreen = 10.0
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -20.0
+offset_top = -30.0
+offset_right = 350.0
 offset_bottom = 0.0
 grow_vertical = 0
 
