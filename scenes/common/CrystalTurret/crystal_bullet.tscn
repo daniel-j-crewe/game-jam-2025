@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://w8mi1npopbpp" path="res://scenes/common/CrystalTurret/CrystalBullet.cs" id="1_mfejn"]
 [ext_resource type="Texture2D" uid="uid://cmhkmntt04whp" path="res://entities/items/flamethrower/flamethrower_2_2.png" id="2_mfejn"]
-[ext_resource type="Shader" path="res://scenes/common/CrystalTurret/crystal_bullet.gdshader" id="2_t08ro"]
+[ext_resource type="Shader" uid="uid://nuqww73k3n6w" path="res://scenes/common/CrystalTurret/crystal_bullet.gdshader" id="2_t08ro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mfejn"]
 size = Vector2(8, 8)

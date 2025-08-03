@@ -15,9 +15,10 @@ public partial class EnemyHitRange : Area2D
 
     public new void AreaEntered(Area2D node)
     {
-        if (node is CrystalBullet)
+        if (node is CrystalBullet && !(node as CrystalBullet).used)
         {
             AttachedEnemy.HitAndRemove();
+            (node as CrystalBullet).used = true;
             node.QueueFree();
         }
     }

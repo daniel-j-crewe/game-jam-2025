@@ -42,7 +42,7 @@ radius = 44.0454
 
 [node name="CrystalTurret" type="StaticBody2D" node_paths=PackedStringArray("Holder", "animatedSprite2D", "TurretAttackSound")]
 script = ExtResource("1_x8nuo")
-RateOfFire = 1.0
+RateOfFire = 2.0
 MovementVelocity = 25.0
 TimeToLive = 3.0
 Holder = NodePath("Holder")

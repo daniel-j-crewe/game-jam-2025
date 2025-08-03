@@ -9,6 +9,7 @@ public partial class CrystalBullet : Area2D
     public double TimeToLive;
     private double timeAlive;
     Vector2 TargetPos;
+    public bool used = false;
 
     public override void _Ready()
     {
