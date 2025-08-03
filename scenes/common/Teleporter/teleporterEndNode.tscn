@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cl2xtm6xcr3dg" path="res://scenes/common/Teleporter/EndInteractZone.cs" id="3_5plkw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m08ic"]
+resource_local_to_scene = true
 shader = ExtResource("1_m08ic")
 shader_parameter/weighted = true
 shader_parameter/isActive = false
