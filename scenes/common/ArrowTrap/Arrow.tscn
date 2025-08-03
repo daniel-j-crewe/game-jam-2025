@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://blaer4c8iqtlf"]
+
+[ext_resource type="Texture2D" uid="uid://364yjb01myaw" path="res://entities/items/arrow/Just_arrow.png" id="1_olos6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1rtd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_olos6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbraj"]
+size = Vector2(7, 11)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_r1rtd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_tbraj")
