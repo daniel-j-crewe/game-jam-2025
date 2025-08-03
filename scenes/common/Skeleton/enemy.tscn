@@ -301,6 +301,7 @@ shape = SubResource("CircleShape2D_kf34u")
 
 [node name="SkeleAttackSound" type="AudioStreamPlayer2D" parent="BoneZone"]
 stream = ExtResource("8_s2ykm")
+bus = &"sfx"
 
 [connection signal="body_entered" from="EnemyDetectionZone" to="EnemyDetectionZone" method="BodyEntered"]
 [connection signal="area_entered" from="EnemyHitRange" to="EnemyHitRange" method="AreaEntered"]

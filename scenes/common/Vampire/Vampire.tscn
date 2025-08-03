@@ -397,6 +397,7 @@ shape = SubResource("CircleShape2D_vrq0a")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MunchZone"]
 stream = ExtResource("9_uucig")
 volume_db = -1.465
+bus = &"sfx"
 
 [connection signal="body_entered" from="DetectionZone" to="DetectionZone" method="BodyEntered"]
 [connection signal="area_entered" from="HitRange" to="HitRange" method="AreaEntered"]
