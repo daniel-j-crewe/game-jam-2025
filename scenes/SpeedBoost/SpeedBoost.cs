@@ -7,6 +7,9 @@ public partial class SpeedBoost : Area2D
     public double BoostDuration { get; set; }
     private bool UsedThisCycle = false;
     public SignalController signalController;
+    [Export]
+    public AudioStreamPlayer2D audioStreamPlayer2D { get; set; }
+
 
     public override void _Ready()
     {
@@ -24,6 +27,7 @@ public partial class SpeedBoost : Area2D
                 (node as cool_wizard_001).SetBoostTimer(BoostDuration);
                 UsedThisCycle = true;
                 this.Visible = false;
+                audioStreamPlayer2D.Play();
             }
         }
     }

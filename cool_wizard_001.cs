@@ -37,6 +37,8 @@ public partial class cool_wizard_001 : CharacterBody2D
 
 	[Export]
 	public TextBubble textBubble { get; set; }
+	[Export]
+	public AudioStreamPlayer2D TurretPlaceSound { get; set; }
 
 
 	[Export]

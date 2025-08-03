@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmdi810el7wa1"
+path="res://.godot/imported/SpeedBoost.wav-4dd7e47a66857e2037d87106518be84d.sample"
+
+[deps]
+
+source_file="res://audio/sound effects/SpeedBoost.wav"
+dest_files=["res://.godot/imported/SpeedBoost.wav-4dd7e47a66857e2037d87106518be84d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
