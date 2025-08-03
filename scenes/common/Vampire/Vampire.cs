@@ -1,16 +1,15 @@
 using Godot;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
-public partial class Enemy : CharacterBody2D
+public partial class Vampire : CharacterBody2D
 {
 	[Export]
-	public Vector2 StartPos;
+	public Vector2 SpawnPoint;
 	[Export]
-	public float Velocity;
-	public Vector2[] TargetPosArray;
+	public new float Velocity;
 	[Export]
-	public EnemyWaypoint[] Waypoints;
+	public VampireWaypoint[] Waypoints;
 	private List<Vector2> TargetPositions = new List<Vector2>();
 	private Vector2 CurrentTargetPos;
 	private Vector2 PreviousPos;
@@ -22,19 +21,18 @@ public partial class Enemy : CharacterBody2D
 	public cool_wizard_001 player { get; set; }
 	[Export]
 	public bool AggroTrackingEnabled { get; set; }
+	private bool MunchZone = false;
 	double navUpdateTimer = 0;
 	double navUpdateTime = 0.2;
 	private Node parent;
-	private bool BoneZone = false;
 	private bool queuedForRemoval = false;
-
 	public SignalController signalController;
 
 	public override void _Ready()
 	{
 		base._Ready();
 		parent = this.GetParent();
-		GlobalPosition = StartPos;
+		GlobalPosition = SpawnPoint;
 		TargetPositions = Waypoints.Select(x => x.GlobalPosition).ToList();
 		OrganiseTargetPositions();
 		PreviousPos = GlobalPosition;
@@ -43,23 +41,18 @@ public partial class Enemy : CharacterBody2D
 		signalController = GetNode<SignalController>("/root/MainSceneRoot/SignalController");
 		signalController.ResetLoop += AcknowledgeResetLoop;
 
-		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite");
 		sprite.Play("idle");
-
 	}
 
 	public void AcknowledgeResetLoop()
 	{
 		AggroTrackingEnabled = false;
-		GlobalPosition = StartPos;
+		GlobalPosition = SpawnPoint;
 		CurrentTargetPos = TargetPositions[0];
 		RestoreToMap();
 	}
 
-	public void BoneZoneToggle(bool updatedBool = false)
-	{
-		BoneZone = updatedBool;
-	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -70,6 +63,7 @@ public partial class Enemy : CharacterBody2D
 			if (parent.GetChildren().Contains(this)) parent.RemoveChild(this);
 			return;
 		}
+
 		navUpdateTimer -= delta;
 
 		if (navUpdateTimer < 0)
@@ -79,6 +73,7 @@ public partial class Enemy : CharacterBody2D
 		}
 
 		Vector2 newPos;
+
 		if (AggroTrackingEnabled)
 		{
 			newPos = GlobalPosition.MoveToward(NavAgent.GetNextPathPosition(), Velocity * (float)delta);
@@ -90,7 +85,7 @@ public partial class Enemy : CharacterBody2D
 
 		Vector2 MovementDifferential = GlobalPosition - PreviousPos;
 
-		if (BoneZone)
+		if (MunchZone)
 		{
 			sprite.Play("attack");
 		}
@@ -124,6 +119,11 @@ public partial class Enemy : CharacterBody2D
 		AggroTrackingEnabled = true;
 	}
 
+	public void MunchZoneToggle(bool updatedBool = false)
+	{
+		MunchZone = updatedBool;
+	}
+
 	public void HitAndRemove()
 	{
 		queuedForRemoval = true;
@@ -138,7 +138,7 @@ public partial class Enemy : CharacterBody2D
 	{
 		if (TargetPositions.Count == 0)
 		{
-			TargetPositions.Add(StartPos);
+			TargetPositions.Add(SpawnPoint);
 		}
 		else
 		{
@@ -146,7 +146,7 @@ public partial class Enemy : CharacterBody2D
 			List<Vector2> returnPath = [.. TargetPositions];
 			TargetPositions.Reverse();
 			TargetPositions.AddRange(returnPath);
-			TargetPositions.Add(StartPos);
+			TargetPositions.Add(SpawnPoint);
 		}
 	}
 
@@ -159,5 +159,4 @@ public partial class Enemy : CharacterBody2D
 		}
 		return TargetPositions[CurrentTargetIndex];
 	}
-	
 }
